@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>pn98601c05-2af7-4553-a359-9ef1a8665a0b</string>
+			</array>
+		</dict>
+	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>trust</string>
+		<string>cbwallet</string>
+		<string>rainbow</string>
+		<string>imtokenv2</string>
+		<string>metamask</string>
+		<string>cbwallet</string>
+		<string>phantom</string>
+		<string>bitkeep</string>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,23 @@
+
+platform :ios, '13.0'
+
+target 'Demo' do
+source 'https://github.com/CocoaPods/Specs.git'
+  use_frameworks!
+
+  pod 'ConnectWalletConnectAdapter'
+  pod 'ConnectEVMAdapter'
+  pod 'ConnectSolanaAdapter'
+  pod 'ConnectPhantomAdapter'
+  pod 'ParticleConnect'
+
+end
+
+
+post_install do |installer|
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+    config.build_settings["ARCHS[sdk=iphonesimulator*]"] = "x86_64"
+    config.build_settings["ARCHS[sdk=iphoneos*]"] = "arm64"
+  end
+end
