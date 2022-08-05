@@ -171,7 +171,8 @@ extension ActionViewController {
                 return transtion
             }
         } else {
-            let txData = TxData(gasPrice: "0x908A904A", gasLimit: "0x5208", from: getSender(), to: getReceiver(), value: "0xE8D4A51000", data: "0x", chainId: "0x2a")
+            let chainId = ConnectManager.getChainId().toHexString()
+            let txData = TxData(gasPrice: "0x2AB6AC5F2", gasLimit: "0x5208", from: getSender(), to: getReceiver(), value: "0xE8D4A51000", data: "0x", chainId: chainId)
             let transaction = try! txData.serialize()
             return .just(transaction)
         }

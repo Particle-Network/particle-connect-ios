@@ -1,39 +1,39 @@
 PODS:
   - Alamofire (5.6.2)
   - BigInt (5.2.0)
-  - ConnectCommon (0.1.1):
+  - ConnectCommon (0.1.2):
     - ParticleNetworkBase
     - RxAlamofire (~> 6.1.1)
-  - ConnectEVMAdapter (0.1.1):
+  - ConnectEVMAdapter (0.1.2):
     - BigInt (~> 5.2.0)
     - ConnectCommon
     - CryptoSwift (~> 1.5.1)
     - GenericJSON (~> 2.0)
-    - KeychainSwift (~> 20.0)
     - RxAlamofire (~> 6.1.1)
     - secp256k1.swift (~> 0.1)
-  - ConnectPhantomAdapter (0.1.1):
+    - SwiftyUserDefaults (~> 5.3.0)
+  - ConnectPhantomAdapter (0.1.2):
     - ConnectCommon
     - RxAlamofire (~> 6.1.1)
     - SwiftyJSON (~> 5.0)
     - SwiftyUserDefaults (~> 5.3.0)
     - TweetNacl
-  - ConnectSolanaAdapter (0.1.1):
+  - ConnectSolanaAdapter (0.1.2):
     - ConnectCommon
-    - KeychainSwift (~> 20.0)
     - RxAlamofire (~> 6.1.1)
     - secp256k1.swift (~> 0.1)
+    - SwiftyUserDefaults (~> 5.3.0)
     - TweetNacl
-  - ConnectWalletConnectAdapter (0.1.1):
+  - ConnectWalletConnectAdapter (0.1.2):
     - ConnectCommon
     - RxAlamofire (~> 6.1.1)
     - RxCocoa (= 6.5.0)
     - RxSwift (= 6.5.0)
+    - SwiftMessages
     - SwiftyJSON (~> 5.0)
     - SwiftyUserDefaults (~> 5.3.0)
   - CryptoSwift (1.5.1)
   - GenericJSON (2.0.1)
-  - KeychainSwift (20.0.0)
   - ParticleAuthService (0.5.5):
     - CryptoSwift (~> 1.5.1)
     - ParticleNetworkBase
@@ -41,7 +41,7 @@ PODS:
     - RxSwift (= 6.5.0)
     - SwiftyJSON (~> 5.0)
     - SwiftyUserDefaults (~> 5.3.0)
-  - ParticleConnect (0.1.1):
+  - ParticleConnect (0.1.2):
     - ConnectCommon
     - ParticleAuthService
   - ParticleNetworkBase (0.5.5):
@@ -58,6 +58,9 @@ PODS:
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
   - secp256k1.swift (0.1.4)
+  - SwiftMessages (9.0.6):
+    - SwiftMessages/App (= 9.0.6)
+  - SwiftMessages/App (9.0.6)
   - SwiftyJSON (5.0.1)
   - SwiftyUserDefaults (5.3.0)
   - TweetNacl (1.0.2)
@@ -80,7 +83,6 @@ SPEC REPOS:
     - ConnectWalletConnectAdapter
     - CryptoSwift
     - GenericJSON
-    - KeychainSwift
     - ParticleAuthService
     - ParticleConnect
     - ParticleNetworkBase
@@ -89,6 +91,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - secp256k1.swift
+    - SwiftMessages
     - SwiftyJSON
     - SwiftyUserDefaults
     - TweetNacl
@@ -96,22 +99,22 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
   BigInt: f668a80089607f521586bbe29513d708491ef2f7
-  ConnectCommon: bebd5c6f35ab0cd3844bd99b30a15c414aa6cc11
-  ConnectEVMAdapter: e0756b20db365f82016cd0dfd0b7c40231eb0f23
-  ConnectPhantomAdapter: c96d274bd3537605f02a539e2d0f901f313060d8
-  ConnectSolanaAdapter: 8f5809bb9ba58037f1f2b2a5d9e92d9857533d67
-  ConnectWalletConnectAdapter: 5a4fc518b2ac6f5d27b572a6719faddaf2f0a5a7
+  ConnectCommon: deda2ac297727d71deab9743be36425eb95339ca
+  ConnectEVMAdapter: 0684c2b2cd6505f57350c67f9b9f0fd15e2efd92
+  ConnectPhantomAdapter: 3a1d0a14aae7da0a73d8fca938f827093c4ccaaf
+  ConnectSolanaAdapter: 11f8f9a3d63566e7aaacadbe262d5e88d1214f70
+  ConnectWalletConnectAdapter: ea338d217749848ff85fdc4eada3b0c039581c4d
   CryptoSwift: c4f2debceb38bf44c80659afe009f71e23e4a082
   GenericJSON: a6e74e2c457f8693caab08e0eafde7d97e6666de
-  KeychainSwift: 0ce6a4d13f7228054d1a71bb1b500448fb2ab837
   ParticleAuthService: 4e9be5b3483632150a86da607f51b873524b4f47
-  ParticleConnect: a228478c5fb96a07225a411f8753e32338aa4f1c
+  ParticleConnect: 723ddd8b1f8a3bac26831da4a02fe19290186b42
   ParticleNetworkBase: 9a0005db62e3bb8569c50c15ffebdfa65b9f4203
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
+  SwiftMessages: f0c7ef4705a570ad6c5e208b611f4333e660ed92
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040
   TweetNacl: 3abf4d1d2082b0114e7a67410e300892448951e6

@@ -8,24 +8,18 @@
 
 import Foundation
 import UIKit
+import ConnectCommon
 
-enum SupportWalletType: CaseIterable, Codable {
-    case particle
-    case metamask
-    case rainbow
-    case trust
-    case imtoken
-    case bitkeep
-    case walletConnect
-    case phantom
-    case evmPrivateKey
-    case solanaPrivateKey
+extension WalletType: CaseIterable {
+    public static var allCases: [WalletType] {
+        return [.particle, .metaMask, .rainbow, .trust, .imtoken, .bitkeep, .walletConnect, .phantom, .evmPrivateKey, .solanaPrivateKey]
+    }
     
     var name: String {
         switch self {
         case .particle:
             return "Particle"
-        case .metamask:
+        case .metaMask:
             return "MetaMask"
         case .rainbow:
             return "Rainbow"
@@ -43,6 +37,8 @@ enum SupportWalletType: CaseIterable, Codable {
             return "EVM Connect"
         case .solanaPrivateKey:
             return "Solana Connect"
+        case .custom(let info):
+            return info.name
         }
     }
     
@@ -50,7 +46,7 @@ enum SupportWalletType: CaseIterable, Codable {
         switch self {
         case .particle:
             return "particle"
-        case .metamask:
+        case .metaMask:
             return "metamask"
         case .rainbow:
             return "rainbow"
@@ -68,9 +64,13 @@ enum SupportWalletType: CaseIterable, Codable {
             return "ethereum"
         case .solanaPrivateKey:
             return "solana"
+        case .custom(_):
+            return "walletconnect"
         }
     }
 }
+  
+
 
 struct SelectWalletModel {
     let name: String

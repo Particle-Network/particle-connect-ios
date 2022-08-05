@@ -20,7 +20,7 @@ import UIKit
 class SelectWalletViewController: UITableViewController {
     let bag = DisposeBag()
     
-    var data: [SupportWalletType] = SupportWalletType.allCases
+    var data: [WalletType] = WalletType.allCases
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,41 +47,52 @@ class SelectWalletViewController: UITableViewController {
         var single: Single<Account?>
         var adapter: ConnectAdapter = adapters[0]
         switch walletType {
-        case .metamask:
+        case .metaMask:
             adapter = adapters.first {
-                $0 is MetaMaskConnectAdapter
+                $0.walletType == .metaMask
             }!
         case .particle:
             adapter = adapters.first {
-                $0 is ParticleConnectAdapter
+                $0.walletType == .particle
             }!
         case .rainbow:
             adapter = adapters.first {
-                $0 is RainbowConnectAdapter
+                $0.walletType == .rainbow
             }!
         case .trust:
             adapter = adapters.first {
-                $0 is TrustConnectAdapter
+                $0.walletType == .trust
             }!
         case .imtoken:
             adapter = adapters.first {
-                $0 is ImtokenConnectAdapter
+                $0.walletType == .imtoken
             }!
         case .bitkeep:
             adapter = adapters.first {
-                $0 is BitkeepConnectAdapter
+                $0.walletType == .bitkeep
             }!
         case .phantom:
             adapter = adapters.first {
-                $0 is PhantomConnectAdapter
+                $0.walletType == .phantom
             }!
         case .walletConnect:
             adapter = adapters.first {
-                $0.name.lowercased() == "wallet connect"
+                $0.walletType == .walletConnect
             }!
         default:
             break
         }
+        
+        if adapter.readyState == .notDetected {
+            self.showToast(title: "Error", message: "You haven't installed this wallet.")
+            return
+        }
+        
+        if adapter.readyState == .unsupported {
+            self.showToast(title: "Error", message: "The wallet is not support current chain")
+            return
+        }
+        
         if walletType == .solanaPrivateKey {
             let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "ImportPrivateKeyViewController") as! ImportPrivateKeyViewController
             vc.chainType = .solana
@@ -102,6 +113,7 @@ class SelectWalletViewController: UITableViewController {
                 switch result {
                 case .failure(let error):
                     print(error)
+                    self.showToast(title: "Error", message: error.localizedDescription)
                 case .success(let account):
                     print(account)
                     if let account = account {
@@ -117,6 +129,9 @@ class SelectWalletViewController: UITableViewController {
                         let connectWalletModel = ConnectWalletModel(publicAddress: account.publicAddress, name: account.name, url: account.url, icons: account.icons, description: account.description, walletType: walletType, chainId: chainId)
                         
                         WalletManager.shared.updateWallet(connectWalletModel)
+                        self.showToast(title: "Success", message: nil) {
+                            self.navigationController?.popViewController(animated: true)
+                        }
                     }
                 }
             }.disposed(by: bag)

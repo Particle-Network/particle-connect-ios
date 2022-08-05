@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyUserDefaults
+import ConnectCommon
 
 struct ConnectWalletModel: Codable, Equatable, DefaultsSerializable {
     let publicAddress: String
@@ -16,7 +17,7 @@ struct ConnectWalletModel: Codable, Equatable, DefaultsSerializable {
     let icons: [String]
     let description: String?
 
-    let walletType: SupportWalletType
+    let walletType: WalletType
     var chainId: Int
 
     public static var _defaults: DefaultsCodableBridge<ConnectWalletModel>

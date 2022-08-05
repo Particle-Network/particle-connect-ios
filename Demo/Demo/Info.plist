@@ -16,11 +16,9 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>trust</string>
-		<string>cbwallet</string>
 		<string>rainbow</string>
 		<string>imtokenv2</string>
 		<string>metamask</string>
-		<string>cbwallet</string>
 		<string>phantom</string>
 		<string>bitkeep</string>
 	</array>

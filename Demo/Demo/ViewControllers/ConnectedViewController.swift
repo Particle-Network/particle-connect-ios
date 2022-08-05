@@ -10,8 +10,12 @@ import Foundation
 import ParticleConnect
 import ParticleNetworkBase
 import UIKit
+import RxSwift
+
 
 class ConnectedViewController: UITableViewController {
+    let bag = DisposeBag()
+    
     var data: [ConnectWalletModel] = []
     
     @IBOutlet var titleButton: UIButton!
@@ -88,5 +92,36 @@ class ConnectedViewController: UITableViewController {
     func loadData() {
         data = WalletManager.shared.getWallets()
         tableView.reloadData()
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
+        -> UISwipeActionsConfiguration?
+    {
+        let model = data[indexPath.row]
+        let deleteAction = UIContextualAction(style: .destructive, title: "Disconnect", handler: { _, _,
+                _ in
+            let adapter = ParticleConnect.getAdapterByAddress(publicAddress: model.publicAddress)!
+            adapter.disconnect(publicAddress: model.publicAddress).subscribe { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let string):
+                    print(string)
+                    WalletManager.shared.removeWallet(model)
+                }
+                
+                self.loadData()
+            }.disposed(by: self.bag)
+        })
+        
+        let copyAction = UIContextualAction(style: .normal, title: "Copy Address", handler: { _, _,
+                _ in
+            UIPasteboard.general.string = model.publicAddress
+        })
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, copyAction])
+        return configuration
     }
 }

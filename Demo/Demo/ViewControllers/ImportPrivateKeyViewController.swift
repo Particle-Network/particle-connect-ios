@@ -37,9 +37,7 @@ class ImportPrivateKeyViewController: UIViewController {
     
     @IBAction func importPrivateKey() {
         let privateKey = textView.text ?? ""
-        guard privateKey.isEmpty else { return }
-        
-        guard (chainType == .solana && privateKey.isValidBase58String()) || (chainType == .evm && privateKey.isValidHexString()) else { return }
+        guard !privateKey.isEmpty else { return }
         
         var adapter: ConnectAdapter
         if chainType == .solana {
@@ -57,6 +55,7 @@ class ImportPrivateKeyViewController: UIViewController {
             switch result {
             case .failure(let error):
                 print(error)
+                self.showToast(title: "Error", message: error.localizedDescription)
             case .success(let account):
                 print(account)
                 if let account = account {
@@ -66,10 +65,13 @@ class ImportPrivateKeyViewController: UIViewController {
                     } else {
                         chainId = 1
                     }
-                    let walletType: SupportWalletType = self.chainType == .solana ? SupportWalletType.solanaPrivateKey : SupportWalletType.evmPrivateKey
+                    let walletType: WalletType = self.chainType == .solana ? WalletType.solanaPrivateKey : WalletType.evmPrivateKey
                     let connectWalletModel = ConnectWalletModel(publicAddress: account.publicAddress, name: account.name, url: account.url, icons: account.icons, description: account.description, walletType: walletType, chainId: chainId)
                     
                     WalletManager.shared.updateWallet(connectWalletModel)
+                    self.showToast(title: "Success", message: nil) {
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 }
             }
         }.disposed(by: bag)

@@ -12,8 +12,8 @@ import ConnectPhantomAdapter
 import ConnectSolanaAdapter
 import ConnectWalletConnectAdapter
 import ParticleAuthService
-import ParticleNetworkBase
 import ParticleConnect
+import ParticleNetworkBase
 import UIKit
 
 @main
@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
 
-        ParticleConnect.initialize(env: .debug, chainName: .ethereum(.kovan), dAppData: DAppMetaData(name: "Test", icon: URL(string: "https://static.particle.network/wallet-icons/Particle.png")!, url: URL(string: "https://static.particle.network")!)) {
+        ParticleConnect.initialize(env: .debug, chainName: .ethereum(.mainnet), dAppData: DAppMetaData(name: "Test", icon: URL(string: "https://static.particle.network/wallet-icons/Particle.png")!, url: URL(string: "https://static.particle.network")!)) {
             [ParticleConnectAdapter(),
              WalletConnectAdapter(),
              MetaMaskConnectAdapter(),
@@ -35,7 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              SolanaConnectAdapter(),
              ImtokenConnectAdapter(),
              BitkeepConnectAdapter(),
-             RainbowConnectAdapter()]
+             RainbowConnectAdapter(),
+             TrustConnectAdapter()]
         }
 
         return true

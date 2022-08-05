@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyUserDefaults
+import ConnectCommon
 
 extension DefaultsKeys {
     var connectedWallets: DefaultsKey<[ConnectWalletModel]> {.init(#function, defaultValue: [])}
@@ -21,7 +22,7 @@ class WalletManager {
         Defaults.connectedWallets
     }
         
-    func getWallets(walletType: SupportWalletType) -> [ConnectWalletModel] {
+    func getWallets(walletType: WalletType) -> [ConnectWalletModel] {
         Defaults.connectedWallets.filter {
             $0.walletType == walletType
         }

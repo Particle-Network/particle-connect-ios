@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5FA138BD289D046D00898C1C /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA138BC289D046D00898C1C /* UIView+Extensions.swift */; };
 		5FA62A16289B6643002A5C74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA62A15289B6643002A5C74 /* AppDelegate.swift */; };
 		5FA62A1A289B6643002A5C74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA62A19289B6643002A5C74 /* ViewController.swift */; };
 		5FA62A1D289B6643002A5C74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FA62A1B289B6643002A5C74 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5FA138BC289D046D00898C1C /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		5FA62A12289B6643002A5C74 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FA62A15289B6643002A5C74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FA62A19289B6643002A5C74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5FA138BB289D046D00898C1C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5FA138BC289D046D00898C1C /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		5FA62A09289B6643002A5C74 = {
 			isa = PBXGroup;
 			children = (
@@ -100,17 +110,18 @@
 		5FA62A14289B6643002A5C74 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				5FA62A15289B6643002A5C74 /* AppDelegate.swift */,
+				5FA62A1E289B6644002A5C74 /* Assets.xcassets */,
+				5FA138BB289D046D00898C1C /* Extensions */,
+				5FA62A23289B6644002A5C74 /* Info.plist */,
+				5FA62A20289B6644002A5C74 /* LaunchScreen.storyboard */,
+				5FA62A1B289B6643002A5C74 /* Main.storyboard */,
 				5FA62A2C289B6A94002A5C74 /* Manager */,
 				5FA62A29289B6A94002A5C74 /* Models */,
+				5FA62A43289B6D57002A5C74 /* ParticleNetwork-Info.plist */,
+				5FA62A19289B6643002A5C74 /* ViewController.swift */,
 				5FA62A30289B6A94002A5C74 /* ViewControllers */,
 				5FA62A2E289B6A94002A5C74 /* Views */,
-				5FA62A15289B6643002A5C74 /* AppDelegate.swift */,
-				5FA62A19289B6643002A5C74 /* ViewController.swift */,
-				5FA62A1B289B6643002A5C74 /* Main.storyboard */,
-				5FA62A1E289B6644002A5C74 /* Assets.xcassets */,
-				5FA62A20289B6644002A5C74 /* LaunchScreen.storyboard */,
-				5FA62A23289B6644002A5C74 /* Info.plist */,
-				5FA62A43289B6D57002A5C74 /* ParticleNetwork-Info.plist */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -292,6 +303,7 @@
 				5FA62A1A289B6643002A5C74 /* ViewController.swift in Sources */,
 				5FA62A16289B6643002A5C74 /* AppDelegate.swift in Sources */,
 				5FA62A42289B6CF2002A5C74 /* RecentBlockHash.swift in Sources */,
+				5FA138BD289D046D00898C1C /* UIView+Extensions.swift in Sources */,
 				5FA62A36289B6A94002A5C74 /* ConnectedWalletModel.swift in Sources */,
 				5FA62A3C289B6A94002A5C74 /* ImportPrivateKeyViewController.swift in Sources */,
 				5FA62A3B289B6A94002A5C74 /* ActionViewController.swift in Sources */,
@@ -465,7 +477,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 0.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.connect.particle.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.connect.particle.demo";
@@ -498,7 +510,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 0.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.connect.particle.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.connect.particle.demo";
