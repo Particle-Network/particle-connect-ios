@@ -27,6 +27,11 @@ struct ConnectWalletModel: Codable, Equatable, DefaultsSerializable {
     { return DefaultsCodableBridge<[ConnectWalletModel]>() }
 
     static func == (lhs: ConnectWalletModel, rhs: ConnectWalletModel) -> Bool {
-        return lhs.publicAddress == rhs.publicAddress && lhs.walletType == rhs.walletType
+        if lhs.walletType == .particle && rhs.walletType == .particle {
+            return true
+        } else {
+            return lhs.publicAddress.lowercased() == rhs.publicAddress.lowercased() && lhs.walletType == rhs.walletType
+        }
+        
     }
 }

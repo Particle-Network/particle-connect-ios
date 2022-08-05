@@ -125,10 +125,10 @@ class SelectWalletViewController: UITableViewController {
                         } else {
                             chainId = 1
                         }
-                        
                         let connectWalletModel = ConnectWalletModel(publicAddress: account.publicAddress, name: account.name, url: account.url, icons: account.icons, description: account.description, walletType: walletType, chainId: chainId)
                         
                         WalletManager.shared.updateWallet(connectWalletModel)
+                        
                         self.showToast(title: "Success", message: nil) {
                             self.navigationController?.popViewController(animated: true)
                         }

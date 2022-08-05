@@ -9,6 +9,7 @@
 import ConnectCommon
 import ConnectSolanaAdapter
 import Foundation
+import ParticleAuthService
 import ParticleConnect
 import ParticleNetworkBase
 import RxSwift
@@ -35,7 +36,7 @@ class ActionViewController: UIViewController {
         sourceTextView.layer.borderColor = UIColor.lightGray.cgColor
         sourceTextView.textContainerInset = .init(top: 10, left: 10, bottom: 10, right: 10)
         
-        addressLabel.text = "Address:" + " " + connectWalletModel.publicAddress
+        addressLabel.text = "Address:" + " " + getSender()
     }
     
     @IBAction func signAndSendTransaction() {
@@ -146,7 +147,12 @@ extension ActionViewController {
     }
     
     private func getSender() -> String {
-        connectWalletModel.publicAddress
+        // since Particle Auth support both solana and evm, get address from Particle Auth is right.
+        if connectWalletModel.walletType == .particle {
+            return ParticleAuthService.getAddress()
+        } else {
+            return connectWalletModel.publicAddress
+        }
     }
     
     private func getReceiver() -> String {
