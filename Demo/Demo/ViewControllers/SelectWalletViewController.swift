@@ -119,7 +119,7 @@ class SelectWalletViewController: UITableViewController {
                     if let account = account {
                         var chainId = 1
                         if walletType == .particle {
-                            chainId = ParticleNetwork.getChainName().chainId
+                            chainId = ParticleNetwork.getChainInfo().chainId
                         } else if walletType == .solanaPrivateKey || walletType == .phantom {
                             chainId = 101
                         } else {

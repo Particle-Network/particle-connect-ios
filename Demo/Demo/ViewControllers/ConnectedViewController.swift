@@ -47,8 +47,8 @@ class ConnectedViewController: UITableViewController {
     }
     
     private func updateUI() {
-        let name = ParticleNetwork.getChainName().nameString
-        let network = ParticleNetwork.getChainName().network
+        let name = ParticleNetwork.getChainInfo().name
+        let network = ParticleNetwork.getChainInfo().network
         
         titleButton.setTitle("\(name) \n \(network.lowercased())", for: .normal)
     }
@@ -72,7 +72,7 @@ class ConnectedViewController: UITableViewController {
         let adapter = adapters.first { element in
             let accounts = element.getAccounts()
             let account = accounts.first {
-                $0.publicAddress == connectWalletModel.publicAddress
+                $0.publicAddress == connectWalletModel.publicAddress && element.walletType == connectWalletModel.walletType
             }
             if account != nil {
                 return true
@@ -125,3 +125,4 @@ class ConnectedViewController: UITableViewController {
         return configuration
     }
 }
+

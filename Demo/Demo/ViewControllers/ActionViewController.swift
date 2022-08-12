@@ -26,6 +26,7 @@ class ActionViewController: UIViewController {
     
     var adapter: ConnectAdapter!
     var connectWalletModel: ConnectWalletModel!
+    var siweMessage: SiweMessage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,6 +133,49 @@ class ActionViewController: UIViewController {
             case .success(let signedMessage):
                 print(signedMessage)
                 self.resultLabel.text = signedMessage
+            }
+        }.disposed(by: bag)
+    }
+    
+    @IBAction func loginSignInWithEthereum() {
+        let message = try! getSiweMessage()
+        self.siweMessage = message
+        print("message = \(message.description)")
+        adapter.login(config: message, publicAddress: getSender()).subscribe { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .failure(let error):
+                print(error)
+                if let connectError = error as? ConnectError {
+                    self.resultLabel.text = "code = \(String(describing: connectError.code)), message = \(String(describing: connectError.message))"
+                } else {
+                    self.resultLabel.text = error.localizedDescription
+                }
+            case .success(let (sourceMessage, signedMessage)):
+                print("sourceMessage = \(sourceMessage), \n\nsignedMessage = \(signedMessage)")
+                self.resultLabel.text = signedMessage
+            }
+        }.disposed(by: bag)
+    }
+    
+    @IBAction func verify() {
+        guard let message = siweMessage else {
+            return
+        }
+        let against = resultLabel.text ?? ""
+        adapter.verify(message: message, against: against).subscribe { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .failure(let error):
+                print(error)
+                if let connectError = error as? ConnectError {
+                    self.resultLabel.text = "code = \(String(describing: connectError.code)), message = \(String(describing: connectError.message))"
+                } else {
+                    self.resultLabel.text = error.localizedDescription
+                }
+            case .success(let flag):
+                print(flag)
+                self.resultLabel.text = flag ? "True" : "False"
             }
         }.disposed(by: bag)
     }
@@ -261,6 +305,55 @@ extension ActionViewController {
         """
         
         return typedData
+    }
+    
+    private func getSiweMessage() throws -> SiweMessage {
+        // Example siwe message
+        // You should update these values for your application.
+        
+        let chainId: Int = ConnectManager.getChainType() == .evm ? 1 : 101
+        let chainNameString: String = ConnectManager.getChainType() == .evm ? "Ethereum" : "Solana"
+        
+        // There are two ways to create a siwe message.
+        // 1, use SiweMessage init method.
+        let message1 = try SiweMessage(
+            domain: "login.xyz",
+            address: "\(getSender())",
+            statement: "Please sign this 🙏",
+            uri: URL(string: "https://login.xyz/demo#login")!,
+            version: "1",
+            chainId: chainId,
+            nonce: "qwerty123456",
+            issuedAt: Date(timeIntervalSince1970: 1_660_106_127.0),
+            expirationTime: Date(timeIntervalSince1970: 1_691_642_127.0),
+            notBefore: Date(timeIntervalSince1970: 1_660_106_100.0),
+            requestId: "some-request-id",
+            resources: [
+                URL(string: "https://docs.login.xyz")!,
+                URL(string: "https://login.xyz")!
+            ]
+        )
+        
+        // 2, use SiweMessage from a format string.
+        let message2 = try SiweMessage(
+            """
+            login.xyz wants you to sign in with your \(chainNameString) account:
+            \(getSender())
+
+            Please sign this 🙏
+            
+            URI: https://login.xyz/demo#login
+            Version: 1
+            Chain ID: \(chainId)
+            Nonce: qwerty123456
+            Issued At: \(SiweMessage.dateFormatter.string(from: Date()))
+            Resources:
+            - https://docs.login.xyz
+            - https://login.xyz
+            """
+        )
+        
+        return message2
     }
 }
 
