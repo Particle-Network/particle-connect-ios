@@ -105,7 +105,7 @@ class SelectWalletViewController: UITableViewController {
             if walletType == .walletConnect {
                 single = (adapter as! WalletConnectAdapter).connectWithQrCode(from: self)
             } else {
-                single = adapter.connect()
+                single = adapter.connect(.none)
             }
             
             single.subscribe { [weak self] result in

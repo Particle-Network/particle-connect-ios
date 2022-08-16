@@ -311,49 +311,13 @@ extension ActionViewController {
         // Example siwe message
         // You should update these values for your application.
         
-        let chainId: Int = ConnectManager.getChainType() == .evm ? 1 : 101
-        let chainNameString: String = ConnectManager.getChainType() == .evm ? "Ethereum" : "Solana"
-        
-        // There are two ways to create a siwe message.
-        // 1, use SiweMessage init method.
         let message1 = try SiweMessage(
             domain: "login.xyz",
             address: "\(getSender())",
-            statement: "Please sign this 🙏",
-            uri: URL(string: "https://login.xyz/demo#login")!,
-            version: "1",
-            chainId: chainId,
-            nonce: "qwerty123456",
-            issuedAt: Date(timeIntervalSince1970: 1_660_106_127.0),
-            expirationTime: Date(timeIntervalSince1970: 1_691_642_127.0),
-            notBefore: Date(timeIntervalSince1970: 1_660_106_100.0),
-            requestId: "some-request-id",
-            resources: [
-                URL(string: "https://docs.login.xyz")!,
-                URL(string: "https://login.xyz")!
-            ]
+            uri: URL(string: "https://login.xyz/demo#login")!
         )
         
-        // 2, use SiweMessage from a format string.
-        let message2 = try SiweMessage(
-            """
-            login.xyz wants you to sign in with your \(chainNameString) account:
-            \(getSender())
-
-            Please sign this 🙏
-            
-            URI: https://login.xyz/demo#login
-            Version: 1
-            Chain ID: \(chainId)
-            Nonce: qwerty123456
-            Issued At: \(SiweMessage.dateFormatter.string(from: Date()))
-            Resources:
-            - https://docs.login.xyz
-            - https://login.xyz
-            """
-        )
-        
-        return message2
+        return message1
     }
 }
 
