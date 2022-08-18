@@ -9,9 +9,8 @@
 import Foundation
 import ParticleConnect
 import ParticleNetworkBase
-import UIKit
 import RxSwift
-
+import UIKit
 
 class ConnectedViewController: UITableViewController {
     let bag = DisposeBag()
@@ -94,14 +93,15 @@ class ConnectedViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
         -> UISwipeActionsConfiguration?
     {
         let model = data[indexPath.row]
         let deleteAction = UIContextualAction(style: .destructive, title: "Disconnect", handler: { _, _,
                 _ in
-            let adapter = ParticleConnect.getAdapterByAddress(publicAddress: model.publicAddress)!
+            let adapter = ParticleConnect.getAdapterByAddress(publicAddress: model.publicAddress).filter {
+                $0.walletType == model.walletType
+            }.first!
             adapter.disconnect(publicAddress: model.publicAddress).subscribe { [weak self] result in
                 guard let self = self else { return }
                 switch result {
@@ -125,4 +125,3 @@ class ConnectedViewController: UITableViewController {
         return configuration
     }
 }
-
