@@ -8,6 +8,7 @@
 
 import ConnectCommon
 import ConnectSolanaAdapter
+import ConnectWalletConnectAdapter
 import Foundation
 import ParticleAuthService
 import ParticleConnect
@@ -38,6 +39,11 @@ class ActionViewController: UIViewController {
         sourceTextView.textContainerInset = .init(top: 10, left: 10, bottom: 10, right: 10)
         
         addressLabel.text = "Address:" + " " + getSender()
+        
+        // Wallet Connect Adapter need reconnect after app launch
+        // other sub adapter as MetaMaskConnectAdapter, RainConnectAdaper ... also need reconnect after app launch
+        // call reconnectIfNeeded after app launch, or before call other sign methods.
+        (adapter as? WalletConnectAdapter)?.reconnectIfNeeded(publicAddress: getSender())
     }
     
     @IBAction func signAndSendTransaction() {
