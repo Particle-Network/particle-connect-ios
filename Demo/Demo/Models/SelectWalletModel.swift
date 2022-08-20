@@ -6,42 +6,19 @@
 //  Copyright © 2022 ParticleNetwork. All rights reserved.
 //
 
+import ConnectCommon
 import Foundation
 import UIKit
-import ConnectCommon
 
 extension WalletType: CaseIterable {
     public static var allCases: [WalletType] {
         return [.particle, .metaMask, .rainbow, .trust, .imtoken, .bitkeep, .walletConnect, .phantom, .evmPrivateKey, .solanaPrivateKey]
     }
-    
+
     var name: String {
-        switch self {
-        case .particle:
-            return "Particle"
-        case .metaMask:
-            return "MetaMask"
-        case .rainbow:
-            return "Rainbow"
-        case .trust:
-            return "Trust"
-        case .imtoken:
-            return "ImToken"
-        case .bitkeep:
-            return "BitKeep"
-        case .walletConnect:
-            return "WalletConnect"
-        case .phantom:
-            return "Phantom"
-        case .evmPrivateKey:
-            return "EVM Connect"
-        case .solanaPrivateKey:
-            return "Solana Connect"
-        case .custom(let info):
-            return info.name
-        }
+        return info.name
     }
-    
+
     var imageName: String {
         switch self {
         case .particle:
@@ -64,13 +41,11 @@ extension WalletType: CaseIterable {
             return "ethereum"
         case .solanaPrivateKey:
             return "solana"
-        case .custom(_):
+        case .custom:
             return "walletconnect"
         }
     }
 }
-  
-
 
 struct SelectWalletModel {
     let name: String
