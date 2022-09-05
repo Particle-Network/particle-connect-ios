@@ -20,7 +20,6 @@ class ImportPrivateKeyViewController: UIViewController {
     
     var chainType: ChainType = .evm
     
-    
     @IBOutlet var textView: UITextView!
     
     override func viewDidLoad() {
@@ -50,7 +49,14 @@ class ImportPrivateKeyViewController: UIViewController {
             }!
         }
         
-        (adapter as! LocalAdapter).importWalletFromPrivateKey(privateKey).subscribe { [weak self] result in
+        var observable: Single<Account?>
+        if privateKey.split(separator: " ").count > 10 {
+            observable = (adapter as! LocalAdapter).importWalletFromMnemonic(privateKey)
+        } else {
+            observable = (adapter as! LocalAdapter).importWalletFromPrivateKey(privateKey)
+        }
+        
+        observable.subscribe { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .failure(let error):

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct RecentBlockHash: Codable {
     struct Context: Codable {
         let slot: Int

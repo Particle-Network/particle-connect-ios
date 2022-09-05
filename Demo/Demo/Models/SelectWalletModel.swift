@@ -24,25 +24,25 @@ extension WalletType: CaseIterable {
         case .particle:
             return "particle"
         case .metaMask:
-            return "metamask"
+            return "login_metamask"
         case .rainbow:
-            return "rainbow"
+            return "login_rainbow"
         case .trust:
-            return "trust"
+            return "login_trust"
         case .imtoken:
-            return "imtoken"
+            return "login_imtoken"
         case .bitkeep:
-            return "bitkeep"
+            return "login_bitkeep"
         case .walletConnect:
-            return "walletconnect"
+            return "login_wallet_connect"
         case .phantom:
-            return "phantom"
+            return "login_phantom"
         case .evmPrivateKey:
             return "ethereum"
         case .solanaPrivateKey:
             return "solana"
         case .custom:
-            return "walletconnect"
+            return "login_wallet_connect"
         }
     }
 }
