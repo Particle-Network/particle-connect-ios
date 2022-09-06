@@ -33,4 +33,5 @@ enum ImageName: String {
     case login_trust
     case login_twitch
     case login_wallet_connect
+    case login_gnosis
 }

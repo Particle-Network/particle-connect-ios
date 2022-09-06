@@ -42,7 +42,8 @@ class LoginListViewController: UIViewController {
          LoginDataModel(imageName: .login_imtoken, name: "login with".localized(para: "imToken")),
          LoginDataModel(imageName: .login_bitkeep, name: "login with".localized(para: "BitKeep")),
          LoginDataModel(imageName: .login_wallet_connect, name: "login with".localized(para: "Wallet Connect")),
-         LoginDataModel(imageName: .login_phantom, name: "login with".localized(para: "Phantom"))]
+         LoginDataModel(imageName: .login_phantom, name: "login with".localized(para: "Phantom")),
+         LoginDataModel(imageName: .login_gnosis, name: "login with".localized(para: "Gnosis Safe"))]
     ]
     
     var successHandler: (((WalletType, Account?)) -> Void)?
@@ -194,6 +195,8 @@ extension LoginListViewController: UITableViewDelegate {
             connect(walletType: .walletConnect)
         case .login_phantom:
             connect(walletType: .phantom)
+        case .login_gnosis:
+            connect(walletType: .gnosis)
         }
     }
     

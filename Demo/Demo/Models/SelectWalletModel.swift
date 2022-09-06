@@ -12,7 +12,7 @@ import UIKit
 
 extension WalletType: CaseIterable {
     public static var allCases: [WalletType] {
-        return [.particle, .metaMask, .rainbow, .trust, .imtoken, .bitkeep, .walletConnect, .phantom, .evmPrivateKey, .solanaPrivateKey]
+        return [.particle, .metaMask, .rainbow, .trust, .imtoken, .bitkeep, .walletConnect, .phantom, .evmPrivateKey, .solanaPrivateKey, .gnosis]
     }
 
     var name: String {
@@ -41,6 +41,8 @@ extension WalletType: CaseIterable {
             return "ethereum"
         case .solanaPrivateKey:
             return "solana"
+        case .gnosis:
+            return "login_gnosis"
         case .custom:
             return "login_wallet_connect"
         }

@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
 
-        ParticleConnect.initialize(env: .debug, chainInfo: .ethereum(.mainnet), dAppData: DAppMetaData(name: "Test", icon: URL(string: "https://static.particle.network/wallet-icons/Particle.png")!, url: URL(string: "https://static.particle.network")!)) {
+        ParticleConnect.initialize(env: .debug, chainInfo: .ethereum(.mainnet), dAppData: DAppMetaData(name: "Particle Connect", icon: URL(string: "https://connect.particle.network/icons/512.png")!, url: URL(string: "https://connect.particle.network")!)) {
             [ParticleConnectAdapter(),
              WalletConnectAdapter(),
              MetaMaskConnectAdapter(),
@@ -36,7 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              ImtokenConnectAdapter(),
              BitkeepConnectAdapter(),
              RainbowConnectAdapter(),
-             TrustConnectAdapter()]
+             TrustConnectAdapter(),
+             GnosisConnectAdapter()]
         }
 
         return true
