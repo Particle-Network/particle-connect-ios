@@ -28,6 +28,7 @@ typealias AuroraNetwork = ParticleNetwork.AuroraNetwork
 typealias HarmonyNetwork = ParticleNetwork.HarmonyNetwork
 typealias KccNetwork = ParticleNetwork.KccNetwork
 typealias OptimismNetwork = ParticleNetwork.OptimismNetwork
+typealias PlatONNetwork = ParticleNetwork.PlatONNetwork
 
 class SwitchChainViewController: UIViewController {
     let bag = DisposeBag()
@@ -48,7 +49,7 @@ class SwitchChainViewController: UIViewController {
             SolanaNetwork.mainnet.rawValue, SolanaNetwork.testnet.rawValue, SolanaNetwork.devnet.rawValue
         ]])
         data.append([Chain.ethereum(.mainnet).name: [
-            EthereumNetwork.mainnet.rawValue, EthereumNetwork.kovan.rawValue, EthereumNetwork.ropsten.rawValue, EthereumNetwork.rinkeby.rawValue, EthereumNetwork.goerli.rawValue
+            EthereumNetwork.mainnet.rawValue,  EthereumNetwork.ropsten.rawValue, EthereumNetwork.rinkeby.rawValue, EthereumNetwork.goerli.rawValue
         ]])
         data.append([Chain.bsc(.mainnet).name: [
             BscNetwork.mainnet.rawValue, BscNetwork.testnet.rawValue
@@ -86,6 +87,10 @@ class SwitchChainViewController: UIViewController {
 
         data.append([Chain.optimism(.mainnet).name: [
             OptimismNetwork.mainnet.rawValue, OptimismNetwork.testnet.rawValue
+        ]])
+        
+        data.append([Chain.platON(.mainnet).name: [
+            PlatONNetwork.mainnet.rawValue, PlatONNetwork.testnet.rawValue
         ]])
     }
 
