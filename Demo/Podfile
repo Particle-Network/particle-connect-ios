@@ -10,7 +10,7 @@ source 'https://github.com/CocoaPods/Specs.git'
   pod 'ConnectSolanaAdapter'
   pod 'ConnectPhantomAdapter'
   pod 'ParticleConnect'
-  
+  pod 'ParticleWalletAPI'
   pod 'SnapKit'
 
 end

@@ -11,10 +11,12 @@ import ConnectSolanaAdapter
 import ConnectWalletConnectAdapter
 import Foundation
 import ParticleAuthService
+import ParticleWalletAPI
 import ParticleConnect
 import ParticleNetworkBase
 import RxSwift
 import UIKit
+import SwiftyJSON
 
 class ActionViewController: UIViewController {
     let bag = DisposeBag()
@@ -182,6 +184,131 @@ class ActionViewController: UIViewController {
             case .success(let flag):
                 print(flag)
                 self.resultLabel.text = flag ? "True" : "False"
+            }
+        }.disposed(by: bag)
+    }
+    
+    @IBAction func switchEthereumChain() {
+        let publicAddress = getSender()
+        let chainInfo = ParticleNetwork.ChainInfo.polygon(.mainnet)
+        let chainId: Int = chainInfo.chainId
+        adapter.switchEthereumChain(publicAddress: publicAddress, chainId: chainId).subscribe { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .failure(let error):
+                print(error)
+                if let connectError = error as? ConnectError {
+                    self.resultLabel.text = "code = \(String(describing: connectError.code)), message = \(String(describing: connectError.message))"
+                } else {
+                    self.resultLabel.text = error.localizedDescription
+                }
+            case .success(let flag):
+                print(flag)
+                self.resultLabel.text = flag
+                ParticleConnect.setChain(chainInfo: chainInfo)
+            }
+            
+        }.disposed(by: bag)
+    }
+    
+    @IBAction func addEthereumChain() {
+        // test add polygon testnet
+        let publicAddress = getSender()
+        
+        let chainInfo = ParticleNetwork.ChainInfo.bsc(.mainnet)
+        let chainId: Int = chainInfo.chainId
+        
+        adapter.addEthereumChain(publicAddress: publicAddress, chainId: chainId, chainName: nil, nativeCurrency: nil, rpcUrl: nil, blockExplorerUrl: nil).subscribe { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .failure(let error):
+                print(error)
+                if let connectError = error as? ConnectError {
+                    self.resultLabel.text = "code = \(String(describing: connectError.code)), message = \(String(describing: connectError.message))"
+                } else {
+                    self.resultLabel.text = error.localizedDescription
+                }
+            case .success(let flag):
+                print(flag)
+                self.resultLabel.text = flag
+                ParticleConnect.setChain(chainInfo: chainInfo)
+            }
+            
+        }.disposed(by: bag)
+    }
+    
+    @IBAction func customRequest() {
+        testEthChainId()
+//        testEthGetBalance()
+//        testEthCall()
+    }
+    
+    func testEthChainId() {
+        let publicAddress = getSender()
+        let method = "eth_chainId"
+        let parameters: [Encodable] = []
+        adapter.request(publicAddress: publicAddress, method: method, parameters: parameters).subscribe { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .failure(let error):
+                print(error)
+                if let connectError = error as? ConnectError {
+                    self.resultLabel.text = "code = \(String(describing: connectError.code)), message = \(String(describing: connectError.message))"
+                } else {
+                    self.resultLabel.text = error.localizedDescription
+                }
+            case .success(let json):
+                print(json)
+                self.resultLabel.text = json?.rawString()
+            }
+            
+        }.disposed(by: bag)
+    }
+    
+    func testEthCall() {
+        let publicAddress = getSender()
+        let method = "eth_call"
+        let contractAddress = "0xfe4F5145f6e09952a5ba9e956ED0C25e3Fa4c7F1"
+        ParticleWalletAPI.getEvmService().abiEncodeFunctionCall(contractAddress: contractAddress, methodName: "balanceOf", params: [publicAddress]).flatMap { json -> Single<SwiftyJSON.JSON?> in
+            let data = json.stringValue
+            let call = CallParams(from: publicAddress, to: contractAddress, value: nil, data: data, gas: nil, gasPrice: nil)
+            return self.adapter.request(publicAddress: publicAddress, method: method, parameters: [call, "latest"])
+        }.subscribe { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .failure(let error):
+                print(error)
+                if let connectError = error as? ConnectError {
+                    self.resultLabel.text = "code = \(String(describing: connectError.code)), message = \(String(describing: connectError.message))"
+                } else {
+                    self.resultLabel.text = error.localizedDescription
+                }
+            case .success(let json):
+                print(json)
+                self.resultLabel.text = json?.rawString()
+            }
+        }.disposed(by: bag)
+    }
+    
+    func testEthGetBalance() {
+        let publicAddress = getSender()
+        let method = "eth_getBalance"
+        self.adapter.request(publicAddress: publicAddress, method: method, parameters: [publicAddress, "latest"]).subscribe { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .failure(let error):
+                print(error)
+                if let connectError = error as? ConnectError {
+                    self.resultLabel.text = "code = \(String(describing: connectError.code)), message = \(String(describing: connectError.message))"
+                } else {
+                    self.resultLabel.text = error.localizedDescription
+                }
+            case .success(let json):
+                print(json)
+                self.resultLabel.text = json?.rawString()
             }
         }.disposed(by: bag)
     }
