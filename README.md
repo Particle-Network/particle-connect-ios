@@ -19,7 +19,7 @@ Install the following:
 
 Xcode 13.3.1 - 13.4.1
 
-### We have releases new version for Xcode 14, if you want to develop with Xcode 14, you should specify version 0.1.17.1
+### We have released new version for Xcode 14, if you want to develop with Xcode 14, you should specify version 0.1.17.1
 
 Make sure that your project meets the following requirements:
 
