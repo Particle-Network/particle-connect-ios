@@ -19,17 +19,17 @@ Install the following:
 
 Xcode 13.3.1 - 13.4.1
 
-### We have released new version for Xcode 14, if you want to develop with Xcode 14, you should specify version 0.1.18.1
+### We have released new version for Xcode 14, if you want to develop with Xcode 14, you should specify version 0.1.19.1
 
 Please select right SDK version.
 | Xcode version                | 13.3.1~13.4.1 | 14.0     |
 |------------------------------|---------------|----------|
-| ConnectCommon                | 0.1.19        | 0.1.18.1 |
-| ParticleConnect              | 0.1.19        | 0.1.18.1 |
-| ConnectWalletConnectAdapter  | 0.1.19        | 0.1.18.1 |
-| ConnectEVMConnectAdapter     | 0.1.19        | 0.1.18.1 |
-| ConnectPhantomConnectAdapter | 0.1.19        | 0.1.18.1 |
-| ConnectSolanaConnectAdapter  | 0.1.19        | 0.1.18.1 |
+| ConnectCommon                | 0.1.20        | 0.1.19.1 |
+| ParticleConnect              | 0.1.20        | 0.1.19.1 |
+| ConnectWalletConnectAdapter  | 0.1.20        | 0.1.19.1 |
+| ConnectEVMConnectAdapter     | 0.1.20        | 0.1.19.1 |
+| ConnectPhantomConnectAdapter | 0.1.20        | 0.1.19.1 |
+| ConnectSolanaConnectAdapter  | 0.1.20        | 0.1.19.1 |
 
 Make sure that your project meets the following requirements:
 
