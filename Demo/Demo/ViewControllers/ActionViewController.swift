@@ -316,7 +316,7 @@ class ActionViewController: UIViewController {
 
 extension ActionViewController {
     private func isSolana() -> Bool {
-        if (connectWalletModel.walletType == .particle && ParticleConnect.getChainType() == .solana) || connectWalletModel.walletType == .solanaPrivateKey || connectWalletModel.walletType == .phantom {
+        if (connectWalletModel.walletType == .particle && ConnectManager.getChainType() == .solana) || connectWalletModel.walletType == .solanaPrivateKey || connectWalletModel.walletType == .phantom {
             return true
         } else {
             return false

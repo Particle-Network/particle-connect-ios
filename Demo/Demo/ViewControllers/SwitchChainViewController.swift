@@ -49,7 +49,7 @@ class SwitchChainViewController: UIViewController {
             SolanaNetwork.mainnet.rawValue, SolanaNetwork.testnet.rawValue, SolanaNetwork.devnet.rawValue
         ]])
         data.append([Chain.ethereum(.mainnet).name: [
-            EthereumNetwork.mainnet.rawValue,  EthereumNetwork.ropsten.rawValue, EthereumNetwork.rinkeby.rawValue, EthereumNetwork.goerli.rawValue
+            EthereumNetwork.mainnet.rawValue, EthereumNetwork.goerli.rawValue
         ]])
         data.append([Chain.bsc(.mainnet).name: [
             BscNetwork.mainnet.rawValue, BscNetwork.testnet.rawValue
@@ -86,7 +86,7 @@ class SwitchChainViewController: UIViewController {
         ]])
 
         data.append([Chain.optimism(.mainnet).name: [
-            OptimismNetwork.mainnet.rawValue, OptimismNetwork.testnet.rawValue
+            OptimismNetwork.mainnet.rawValue, OptimismNetwork.goerli.rawValue
         ]])
         
         data.append([Chain.platON(.mainnet).name: [
