@@ -1,33 +1,33 @@
 PODS:
   - Alamofire (5.6.2)
   - BigInt (5.2.0)
-  - ConnectCommon (0.1.18):
+  - ConnectCommon (0.1.26.1):
     - BigInt (~> 5.2.0)
     - ParticleNetworkBase
     - RxAlamofire (~> 6.1.1)
     - secp256k1.swift (~> 0.1)
     - SwiftyJSON (~> 5.0)
     - TweetNacl
-  - ConnectEVMAdapter (0.1.18):
+  - ConnectEVMAdapter (0.1.26.1):
     - BigInt (~> 5.2.0)
     - ConnectCommon
     - CryptoSwift (~> 1.5.1)
     - GenericJSON (~> 2.0)
     - RxAlamofire (~> 6.1.1)
     - SwiftyUserDefaults (~> 5.3.0)
-  - ConnectPhantomAdapter (0.1.18):
+  - ConnectPhantomAdapter (0.1.26.1):
     - ConnectCommon
     - RxAlamofire (~> 6.1.1)
     - SwiftyJSON (~> 5.0)
     - SwiftyUserDefaults (~> 5.3.0)
     - TweetNacl
-  - ConnectSolanaAdapter (0.1.18):
+  - ConnectSolanaAdapter (0.1.26.1):
     - ConnectCommon
     - RxAlamofire (~> 6.1.1)
     - secp256k1.swift (~> 0.1)
     - SwiftyUserDefaults (~> 5.3.0)
     - TweetNacl
-  - ConnectWalletConnectAdapter (0.1.18):
+  - ConnectWalletConnectAdapter (0.1.26.1):
     - ConnectCommon
     - RxAlamofire (~> 6.1.1)
     - RxCocoa (= 6.5.0)
@@ -36,23 +36,24 @@ PODS:
     - SwiftyJSON (~> 5.0)
     - SwiftyUserDefaults (~> 5.3.0)
   - CryptoSwift (1.5.1)
-  - GenericJSON (2.0.1)
+  - GenericJSON (2.0.2)
   - GRDB.swift (5.26.1):
     - GRDB.swift/standard (= 5.26.1)
   - GRDB.swift/standard (5.26.1)
-  - ParticleAuthService (0.7.10):
+  - ParticleAuthService (0.7.19.1):
     - CryptoSwift (~> 1.5.1)
     - ParticleNetworkBase
+    - RxAlamofire (~> 6.1.1)
     - RxCocoa (= 6.5.0)
     - RxSwift (= 6.5.0)
     - SwiftyJSON (~> 5.0)
     - SwiftyUserDefaults (~> 5.3.0)
-  - ParticleConnect (0.1.18):
+  - ParticleConnect (0.1.26.1):
     - ConnectCommon
     - ParticleAuthService
-  - ParticleNetworkBase (0.7.10):
+  - ParticleNetworkBase (0.7.19.1):
     - CryptoSwift (~> 1.5.1)
-  - ParticleWalletAPI (0.7.10):
+  - ParticleWalletAPI (0.7.19.1):
     - CryptoSwift (~> 1.5.1)
     - GRDB.swift (= 5.26.1)
     - ParticleNetworkBase
@@ -82,12 +83,15 @@ PODS:
   - TweetNacl (1.0.2)
 
 DEPENDENCIES:
-  - ConnectEVMAdapter
-  - ConnectPhantomAdapter
-  - ConnectSolanaAdapter
-  - ConnectWalletConnectAdapter
-  - ParticleConnect
-  - ParticleWalletAPI
+  - ConnectCommon (= 0.1.26.1)
+  - ConnectEVMAdapter (= 0.1.26.1)
+  - ConnectPhantomAdapter (= 0.1.26.1)
+  - ConnectSolanaAdapter (= 0.1.26.1)
+  - ConnectWalletConnectAdapter (= 0.1.26.1)
+  - ParticleAuthService (= 0.7.19.1)
+  - ParticleConnect (= 0.1.26.1)
+  - ParticleNetworkBase (= 0.7.19.1)
+  - ParticleWalletAPI (= 0.7.19.1)
   - SnapKit
 
 SPEC REPOS:
@@ -120,18 +124,18 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
   BigInt: f668a80089607f521586bbe29513d708491ef2f7
-  ConnectCommon: c2afb413e736878b28d02cb2955b95144f876d40
-  ConnectEVMAdapter: b3562b3cf38a8964eef1ee1a8c40a4b87965853c
-  ConnectPhantomAdapter: c1a5cd93f11e6bf5a6d83a013cbe7b3bf2e72ac2
-  ConnectSolanaAdapter: 6e3a4a1d9f141f2d6e2bc09c2c91a518ae9395f4
-  ConnectWalletConnectAdapter: b91baaa87ea9634226c017a99a5c54a22514c43a
+  ConnectCommon: 9253a02cf4685b1f53f3e8e8bd639f94e4cd93f8
+  ConnectEVMAdapter: 1bd9300e5a797a400c0565157d096b35039e1394
+  ConnectPhantomAdapter: 1707cbf0aae7a43b1aee47e96fec0f0a1e87ad67
+  ConnectSolanaAdapter: 75cd425ba19fb219dabbe36f820b37034487140d
+  ConnectWalletConnectAdapter: 83b0cbf041ca8e62799b35792c67def9d8bcbbcc
   CryptoSwift: c4f2debceb38bf44c80659afe009f71e23e4a082
-  GenericJSON: a6e74e2c457f8693caab08e0eafde7d97e6666de
+  GenericJSON: 79a840eeb77030962e8cf02a62d36bd413b67626
   GRDB.swift: e98cd55ec99dea5da99355d588149063e4cfa0eb
-  ParticleAuthService: 4061b83167439a1a320efce7bc7f829c3252baaa
-  ParticleConnect: a877c1c5fc0aa3bff71122daaeafaa1cf4091556
-  ParticleNetworkBase: 4b5aa8d1762bb81b6438b3af3602b67a5529b47b
-  ParticleWalletAPI: 68b3ff967133e06917cda3b5543d35152a0eb377
+  ParticleAuthService: 4ebf4e1e4d3900576ae1bd2ddf3554f09b947476
+  ParticleConnect: 6ebb3440f981080728f3aa1fd847328693215163
+  ParticleNetworkBase: cfaa241fadae15bdea984a0058d4041055597c3f
+  ParticleWalletAPI: 2f2c67da2a6f35343d910104efc024830e7e952a
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
@@ -143,6 +147,6 @@ SPEC CHECKSUMS:
   SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040
   TweetNacl: 3abf4d1d2082b0114e7a67410e300892448951e6
 
-PODFILE CHECKSUM: 157affaa9f5f6b6a05a21623438f2edf6a5364b3
+PODFILE CHECKSUM: df5aae6666ef9a1667d13de535f04b4e2d161828
 
 COCOAPODS: 1.11.3
