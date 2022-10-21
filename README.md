@@ -24,12 +24,12 @@ Xcode 13.3.1 - 13.4.1
 Please select right SDK version.
 | Xcode version                | 13.3.1~13.4.1 | 14.0     |
 |------------------------------|---------------|----------|
-| ConnectCommon                | 0.1.26        | 0.1.25.1 |
-| ParticleConnect              | 0.1.26        | 0.1.25.1 |
-| ConnectWalletConnectAdapter  | 0.1.26        | 0.1.25.1 |
-| ConnectEVMConnectAdapter     | 0.1.26        | 0.1.25.1 |
-| ConnectPhantomConnectAdapter | 0.1.26        | 0.1.25.1 |
-| ConnectSolanaConnectAdapter  | 0.1.26        | 0.1.25.1 |
+| ConnectCommon                | 0.1.28        | 0.1.27.1 |
+| ParticleConnect              | 0.1.28        | 0.1.27.1 |
+| ConnectWalletConnectAdapter  | 0.1.28        | 0.1.27.1 |
+| ConnectEVMConnectAdapter     | 0.1.28        | 0.1.27.1 |
+| ConnectPhantomConnectAdapter | 0.1.28        | 0.1.27.1 |
+| ConnectSolanaConnectAdapter  | 0.1.28        | 0.1.27.1 |
 
 Make sure that your project meets the following requirements:
 
