@@ -17,7 +17,7 @@ Modular Swift wallet adapters and components for EVM & Solana chains. Manage wal
 # Prerequisites
 Install the following:
 
-Xcode 13.3.1 - 13.4.1
+Xcode 13.3.1 or higher
 
 ### We have released new version for Xcode 14, if you want to develop with Xcode 14, you should specify version.
 
