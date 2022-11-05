@@ -5,16 +5,16 @@ target 'Demo' do
 source 'https://github.com/CocoaPods/Specs.git'
   use_frameworks!
 
-  pod 'ConnectWalletConnectAdapter', '0.1.26.1'
-  pod 'ConnectEVMAdapter', '0.1.26.1'
-  pod 'ConnectSolanaAdapter', '0.1.26.1'
-  pod 'ConnectPhantomAdapter', '0.1.26.1'
-  pod 'ParticleConnect', '0.1.26.1'
-  pod 'ConnectCommon', '0.1.26.1'
+  pod 'ConnectWalletConnectAdapter', '0.1.30.1'
+  pod 'ConnectEVMAdapter', '0.1.30.1'
+  pod 'ConnectSolanaAdapter', '0.1.30.1'
+  pod 'ConnectPhantomAdapter', '0.1.30.1'
+  pod 'ParticleConnect', '0.1.30.1'
+  pod 'ConnectCommon', '0.1.30.1'
   
-  pod 'ParticleWalletAPI', '0.7.19.1'
-  pod 'ParticleNetworkBase', '0.7.19.1'
-  pod 'ParticleAuthService', '0.7.19.1'
+  pod 'ParticleWalletAPI', '0.8.3.1'
+  pod 'ParticleNetworkBase', '0.8.3.1'
+  pod 'ParticleAuthService', '0.8.3.1'
   
   pod 'SnapKit'
 
@@ -26,5 +26,16 @@ post_install do |installer|
     config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
     config.build_settings["ARCHS[sdk=iphonesimulator*]"] = "x86_64"
     config.build_settings["ARCHS[sdk=iphoneos*]"] = "arm64"
+  end
+  
+  # This is necessary for Xcode 14, because it signs resource bundles by default
+  # when building for devices.
+  installer.target_installation_results.pod_target_installation_results
+  .each do |pod_name, target_installation_result|
+    target_installation_result.resource_bundle_targets.each do |resource_bundle_target|
+      resource_bundle_target.build_configurations.each do |config|
+        config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+      end
+    end
   end
 end
