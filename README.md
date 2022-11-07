@@ -22,14 +22,14 @@ Xcode 13.3.1 or higher
 ### We have released new version for Xcode 14, if you want to develop with Xcode 14, you should specify version.
 
 Please select right SDK version.
-| Xcode version                | 13.3.1~13.4.1 | 14.0~14.0.1     |
-|------------------------------|---------------|----------|
-| ConnectCommon                | 0.1.31        | 0.1.30.1 |
-| ParticleConnect              | 0.1.31        | 0.1.30.1 |
-| ConnectWalletConnectAdapter  | 0.1.31        | 0.1.30.1 |
-| ConnectEVMConnectAdapter     | 0.1.31        | 0.1.30.1 |
-| ConnectPhantomConnectAdapter | 0.1.31        | 0.1.30.1 |
-| ConnectSolanaConnectAdapter  | 0.1.31        | 0.1.30.1 |
+| Xcode version                | 13.3.1~13.4.1 | 14.0~14.0.1     | 14.1|
+|------------------------------|---------------|----------|------|
+| ConnectCommon                | 0.1.31        | 0.1.30.1 | 0.1.30.2 |
+| ParticleConnect              | 0.1.31        | 0.1.30.1 | 0.1.30.2 |
+| ConnectWalletConnectAdapter  | 0.1.31        | 0.1.30.1 | 0.1.30.2 |
+| ConnectEVMConnectAdapter     | 0.1.31        | 0.1.30.1 | 0.1.30.2 |
+| ConnectPhantomConnectAdapter | 0.1.31        | 0.1.30.1 | 0.1.30.2 |
+| ConnectSolanaConnectAdapter  | 0.1.31        | 0.1.30.1 | 0.1.30.2 |
 
 Make sure that your project meets the following requirements:
 
