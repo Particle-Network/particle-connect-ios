@@ -64,7 +64,7 @@ class SwitchChainViewController: UIViewController {
             FantomNetwork.mainnet.rawValue, FantomNetwork.testnet.rawValue
         ]])
         data.append([Chain.arbitrum(.mainnet).name: [
-            ArbitrumNetwork.mainnet.rawValue, ArbitrumNetwork.testnet.rawValue
+            ArbitrumNetwork.mainnet.rawValue, ArbitrumNetwork.goerli.rawValue
         ]])
         data.append([Chain.moonbeam(.mainnet).name: [
             MoonbeamNetwork.mainnet.rawValue, MoonbeamNetwork.testnet.rawValue
