@@ -19,17 +19,27 @@ Install the following:
 
 Xcode 13.3.1 or higher
 
-### We have released new version for Xcode 14, if you want to develop with Xcode 14, you should specify version.
+| Xcode version                | 13.3.1 ~ 14.1 | 
+|------------------------------|---------------|
+| ConnectCommon                | 0.1.32        |
+| ParticleConnect              | 0.1.32        |
+| ConnectWalletConnectAdapter  | 0.1.32        |
+| ConnectEVMConnectAdapter     | 0.1.32        |
+| ConnectPhantomConnectAdapter | 0.1.32        |
+| ConnectSolanaConnectAdapter  | 0.1.32        |
 
-Please select right SDK version.
-| Xcode version                | 13.3.1~13.4.1 | 14.0~14.0.1     | 14.1|
-|------------------------------|---------------|----------|------|
-| ConnectCommon                | 0.1.31        | 0.1.30.1 | 0.1.30.2 |
-| ParticleConnect              | 0.1.31        | 0.1.30.1 | 0.1.30.2 |
-| ConnectWalletConnectAdapter  | 0.1.31        | 0.1.30.1 | 0.1.30.2 |
-| ConnectEVMConnectAdapter     | 0.1.31        | 0.1.30.1 | 0.1.30.2 |
-| ConnectPhantomConnectAdapter | 0.1.31        | 0.1.30.1 | 0.1.30.2 |
-| ConnectSolanaConnectAdapter  | 0.1.31        | 0.1.30.1 | 0.1.30.2 |
+###  🧂 Update Podfile
+From 0.1.32, we start to build SDK with XCFramework, that request copy the following text into Podfile.
+
+```ruby
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+    config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+      end
+    end
+   end
+```
 
 Make sure that your project meets the following requirements:
 
@@ -73,22 +83,6 @@ pod install --repo-update
 
 ## Docs
 1. https://docs.particle.network/connect-service/sdks/ios
-
-
-## ARM64 Simulator support
-For everyone with an M1 (Silicon) device who want run their projects on a simulator, There are two solutions.
-1. Set arm64 as excluding architecture for Any iOS Simulator SDK. add the following to Podfile
-```ruby
-post_install do |installer|
-  installer.pods_project.build_configurations.each do |config|
-    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
-    config.build_settings["ARCHS[sdk=iphonesimulator*]"] = "x86_64"
-    config.build_settings["ARCHS[sdk=iphoneos*]"] = "arm64"
-  end
-end
-```
-
-2. Run Xcode with Rosetta.
 
 ## Give Feedback
 Please report bugs or issues to [particle-connect-ios/issues](https://github.com/Particle-Network/particle-connect-ios/issues)
