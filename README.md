@@ -21,12 +21,12 @@ Xcode 13.3.1 or higher
 
 | Xcode version                | 13.3.1 ~ 14.1 | 
 |------------------------------|---------------|
-| ConnectCommon                | 0.1.32        |
-| ParticleConnect              | 0.1.32        |
-| ConnectWalletConnectAdapter  | 0.1.32        |
-| ConnectEVMConnectAdapter     | 0.1.32        |
-| ConnectPhantomConnectAdapter | 0.1.32        |
-| ConnectSolanaConnectAdapter  | 0.1.32        |
+| ConnectCommon                | 0.1.33        |
+| ParticleConnect              | 0.1.33        |
+| ConnectWalletConnectAdapter  | 0.1.33        |
+| ConnectEVMConnectAdapter     | 0.1.33        |
+| ConnectPhantomConnectAdapter | 0.1.33        |
+| ConnectSolanaConnectAdapter  | 0.1.33        |
 
 ###  🧂 Update Podfile
 From 0.1.32, we start to build SDK with XCFramework, that request copy the following text into Podfile.
