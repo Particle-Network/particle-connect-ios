@@ -463,14 +463,8 @@ extension ActionViewController {
     
     private func getTransactionToken() -> Single<String> {
         if isSolana() {
-            ParticleWalletAPI.getSolanaService().serializeTransaction(type: .transferToken, sender: getSender(), receiver: "9LR6zGAFB3UJcLg9tWBQJxEJCbZh2UTnSU14RBxsK1ZN", lamports: BInt(1000000000), mintAddress: "GobzzzFQsFAHPvmwT42rLockfUCeV3iutEkK218BxT8K", payer: nil)
-            return getRecentBlockHash().map { [weak self] blockhash in
-                guard let self = self else { return "" }
-                let instruction = SystemProgram.transferInstruction(from: try! PublicKey(string: self.getSender()), to: try! PublicKey(string: self.getReceiver()), lamports: 100000)
-
-                var solanaTransaction = SolanaTransaction(instructions: [instruction], recentBlockhash: blockhash, feePayer: try! PublicKey(string: self.getSender()))
-                let transtion = Base58.encode(try! solanaTransaction.serialize(requiredAllSignatures: false, verifySignatures: false))
-                return transtion
+            return ParticleWalletAPI.getSolanaService().serializeTransaction(type: .transferToken, sender: getSender(), receiver: "9LR6zGAFB3UJcLg9tWBQJxEJCbZh2UTnSU14RBxsK1ZN", lamports: BInt(1000000000), mintAddress: "GobzzzFQsFAHPvmwT42rLockfUCeV3iutEkK218BxT8K", payer: nil).map {
+                $0.stringValue
             }
         } else {
             if ParticleNetwork.getChainInfo().chain == .tron {
@@ -600,4 +594,3 @@ extension ActionViewController {
         }.disposed(by: bag)
     }
 }
-
