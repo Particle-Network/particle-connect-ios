@@ -8,10 +8,10 @@
 
 import Foundation
 import ParticleAuthService
+import ParticleConnect
 import ParticleNetworkBase
 import RxSwift
 import UIKit
-import ParticleConnect
 
 typealias Chain = ParticleNetwork.ChainInfo
 typealias SolanaNetwork = ParticleNetwork.SolanaNetwork
@@ -29,6 +29,10 @@ typealias HarmonyNetwork = ParticleNetwork.HarmonyNetwork
 typealias KccNetwork = ParticleNetwork.KccNetwork
 typealias OptimismNetwork = ParticleNetwork.OptimismNetwork
 typealias PlatONNetwork = ParticleNetwork.PlatONNetwork
+typealias TronNetwork = ParticleNetwork.TronNetwork
+typealias OKCNetwork = ParticleNetwork.OKCNetwork
+typealias ThunderCoreNetwork = ParticleNetwork.ThunderCoreNetwork
+typealias CronosNetwork = ParticleNetwork.CronosNetwork
 
 class SwitchChainViewController: UIViewController {
     let bag = DisposeBag()
@@ -84,13 +88,23 @@ class SwitchChainViewController: UIViewController {
         data.append([Chain.kcc(.mainnet).name: [
             KccNetwork.mainnet.rawValue, KccNetwork.testnet.rawValue
         ]])
-
         data.append([Chain.optimism(.mainnet).name: [
             OptimismNetwork.mainnet.rawValue, OptimismNetwork.goerli.rawValue
         ]])
-        
         data.append([Chain.platON(.mainnet).name: [
             PlatONNetwork.mainnet.rawValue, PlatONNetwork.testnet.rawValue
+        ]])
+        data.append([Chain.tron(.mainnet).name: [
+            TronNetwork.mainnet.rawValue, TronNetwork.shasta.rawValue, TronNetwork.nile.rawValue
+        ]])
+        data.append([Chain.okc(.mainnet).name: [
+            OKCNetwork.mainnet.rawValue, OKCNetwork.testnet.rawValue
+        ]])
+        data.append([Chain.thunderCore(.mainnet).name: [
+            ThunderCoreNetwork.mainnet.rawValue, ThunderCoreNetwork.testnet.rawValue
+        ]])
+        data.append([Chain.cronos(.mainnet).name: [
+            CronosNetwork.mainnet.rawValue, CronosNetwork.testnet.rawValue
         ]])
     }
 
@@ -102,7 +116,7 @@ class SwitchChainViewController: UIViewController {
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: NSStringFromClass(UITableViewCell.self))
@@ -128,14 +142,6 @@ extension SwitchChainViewController: UITableViewDataSource {
         cell.selectionStyle = .none
         return cell
     }
-
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let label = UILabel()
-//        label.text = "    " + (data[section].keys.first ?? "")
-//        label.textColor = UIColor.black
-//        label.font = UIFont.systemFont(ofSize: 20)
-//        return label
-//    }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         data[section].keys.first
@@ -175,11 +181,23 @@ extension SwitchChainViewController: UITableViewDelegate {
             chainInfo = .harmony(HarmonyNetwork(rawValue: network)!)
         case Chain.kcc(.mainnet).name:
             chainInfo = .kcc(KccNetwork(rawValue: network)!)
+        case Chain.optimism(.mainnet).name:
+            chainInfo = .optimism(OptimismNetwork(rawValue: network)!)
+        case Chain.platON(.mainnet).name:
+            chainInfo = .platON(PlatONNetwork(rawValue: network)!)
+        case Chain.tron(.mainnet).name:
+            chainInfo = .tron(TronNetwork(rawValue: network)!)
+        case Chain.okc(.mainnet).name:
+            chainInfo = .okc(OKCNetwork(rawValue: network)!)
+        case Chain.thunderCore(.mainnet).name:
+            chainInfo = .thunderCore(ThunderCoreNetwork(rawValue: network)!)
+        case Chain.cronos(.mainnet).name:
+            chainInfo = .cronos(CronosNetwork(rawValue: network)!)
         default:
             chainInfo = .ethereum(.mainnet)
         }
-        
-        ParticleConnect.setChain(chainInfo: chainInfo)
+
+        ParticleNetwork.setChainInfo(chainInfo)
 
         let alert = UIAlertController(title: "Switch network", message: "current network is \(name) - \(network)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
@@ -194,3 +212,4 @@ extension SwitchChainViewController: UITableViewDelegate {
 //        }
     }
 }
+
