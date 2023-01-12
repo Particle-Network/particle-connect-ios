@@ -12,9 +12,9 @@ source 'https://github.com/CocoaPods/Specs.git'
   pod 'ParticleConnect', '0.1.42'
   pod 'ConnectCommon', '0.1.42'
   
-  pod 'ParticleWalletAPI', '0.9.6'
-  pod 'ParticleNetworkBase', '0.9.6'
-  pod 'ParticleAuthService', '0.9.6'
+  pod 'ParticleWalletAPI', '0.9.9'
+  pod 'ParticleNetworkBase', '0.9.9'
+  pod 'ParticleAuthService', '0.9.9'
   
   pod 'SnapKit'
 

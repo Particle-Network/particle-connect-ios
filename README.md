@@ -1,7 +1,7 @@
 # Particle Connect iOS
 [![Swift](https://img.shields.io/badge/Swift-5-orange)](https://img.shields.io/badge/Swift-5-orange)
 [![Platforms](https://img.shields.io/badge/Platforms-iOS-yellowgreen)](https://img.shields.io/badge/Platforms-iOS-Green)
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/ParticleConnect.svg)](https://img.shields.io/cocoapods/v/Alamofire.svg)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/ParticleConnect.svg)](https://img.shields.io/cocoapods/v/ParticleConnect.svg)
 [![License](https://img.shields.io/github/license/Particle-Network/particle-ios)](https://github.com/Particle-Network/particle-connect-ios/blob/main/LICENSE.txt)
 
 
@@ -21,12 +21,12 @@ Xcode 13.3.1 or higher
 
 | Xcode version                | 13.3.1 ~ 14.1 | 
 |------------------------------|---------------|
-| ConnectCommon                | 0.1.42        |
-| ParticleConnect              | 0.1.42        |
-| ConnectWalletConnectAdapter  | 0.1.42        |
-| ConnectEVMConnectAdapter     | 0.1.42        |
-| ConnectPhantomConnectAdapter | 0.1.42        |
-| ConnectSolanaConnectAdapter  | 0.1.42        |
+| ConnectCommon                | 0.1.44        |
+| ParticleConnect              | 0.1.44        |
+| ConnectWalletConnectAdapter  | 0.1.44        |
+| ConnectEVMConnectAdapter     | 0.1.44        |
+| ConnectPhantomConnectAdapter | 0.1.44        |
+| ConnectSolanaConnectAdapter  | 0.1.44        |
 
 ###  🧂 Update Podfile
 From 0.1.32, we start to build SDK with XCFramework, that request copy the following text into Podfile.

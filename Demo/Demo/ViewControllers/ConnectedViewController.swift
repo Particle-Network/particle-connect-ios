@@ -89,7 +89,13 @@ class ConnectedViewController: UITableViewController {
     }
     
     func loadData() {
-        data = WalletManager.shared.getWallets()
+        data = WalletManager.shared.getWallets().filter { connectWalletModel in
+            let adapters = ParticleConnect.getAdapterByAddress(publicAddress: connectWalletModel.publicAddress).filter {
+                $0.isConnected(publicAddress: connectWalletModel.publicAddress)
+            }
+            return !adapters.isEmpty
+        }
+        
         tableView.reloadData()
     }
     

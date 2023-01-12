@@ -41,7 +41,7 @@ PODS:
   - GRDB.swift (5.26.1):
     - GRDB.swift/standard (= 5.26.1)
   - GRDB.swift/standard (5.26.1)
-  - ParticleAuthService (0.9.6):
+  - ParticleAuthService (0.9.9):
     - CryptoSwift (~> 1.5.1)
     - ParticleNetworkBase
     - RxAlamofire (~> 6.1.1)
@@ -52,10 +52,10 @@ PODS:
   - ParticleConnect (0.1.42):
     - ConnectCommon
     - ParticleAuthService
-  - ParticleNetworkBase (0.9.6):
+  - ParticleNetworkBase (0.9.9):
     - BigInt (~> 5.2.0)
     - CryptoSwift (~> 1.5.1)
-  - ParticleWalletAPI (0.9.6):
+  - ParticleWalletAPI (0.9.9):
     - CryptoSwift (~> 1.5.1)
     - GRDB.swift (= 5.26.1)
     - ParticleNetworkBase
@@ -92,10 +92,10 @@ DEPENDENCIES:
   - ConnectPhantomAdapter (= 0.1.42)
   - ConnectSolanaAdapter (= 0.1.42)
   - ConnectWalletConnectAdapter (= 0.1.42)
-  - ParticleAuthService (= 0.9.6)
+  - ParticleAuthService (= 0.9.9)
   - ParticleConnect (= 0.1.42)
-  - ParticleNetworkBase (= 0.9.6)
-  - ParticleWalletAPI (= 0.9.6)
+  - ParticleNetworkBase (= 0.9.9)
+  - ParticleWalletAPI (= 0.9.9)
   - SnapKit
 
 SPEC REPOS:
@@ -137,10 +137,10 @@ SPEC CHECKSUMS:
   CryptoSwift: c4f2debceb38bf44c80659afe009f71e23e4a082
   GenericJSON: 79a840eeb77030962e8cf02a62d36bd413b67626
   GRDB.swift: e98cd55ec99dea5da99355d588149063e4cfa0eb
-  ParticleAuthService: 4c3ac73651a89334254f7600cf28de0c2e686658
+  ParticleAuthService: 8d6a61970c3f35310f7afaaded9558f521c88ad2
   ParticleConnect: 2e1d035d09f6d9636fb01fd30522bde33ef9b061
-  ParticleNetworkBase: 17be6a86fc3b9e5129de089be4bde68c5ad765ec
-  ParticleWalletAPI: 2948c2b4a02124b3b7afb08228daab0c24c01e8f
+  ParticleNetworkBase: 84836bb191c481a63ae2abd18660db9dbf2a0357
+  ParticleWalletAPI: c398dcb872cf684de3350576945f62e8afd1111b
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
@@ -153,6 +153,6 @@ SPEC CHECKSUMS:
   TweetNacl: 3abf4d1d2082b0114e7a67410e300892448951e6
   WalletConnectSwift: 6309bf3011b0b30e3e9d1e7449535302a9240f71
 
-PODFILE CHECKSUM: 9b8b7f866ca13a6adf5a0d91125937cd85384b8f
+PODFILE CHECKSUM: cc9218450e760ec4bb689a3cea03dc0e1fb5ee7a
 
 COCOAPODS: 1.11.3
