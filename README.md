@@ -28,6 +28,12 @@ Xcode 13.3.1 or higher
 | ConnectPhantomConnectAdapter | 0.1.45        |
 | ConnectSolanaConnectAdapter  | 0.1.45        |
 
+### 🔌 Podfile request
+From 0.1.45, you should add more in podfile
+```ruby
+pod 'WalletConnectSwift', :git => 'https://github.com/SunZhiC/WalletConnectSwift', :branch => 'master'
+```
+
 ###  🧂 Update Podfile
 From 0.1.32, we start to build SDK with XCFramework, that request copy the following text into Podfile.
 
