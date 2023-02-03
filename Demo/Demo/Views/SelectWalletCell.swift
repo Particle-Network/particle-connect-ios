@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 
 class SelectWalletCell: UITableViewCell {
+    let iconImageView = UIImageView()
+    
+    let nameLabel = UILabel()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         config()
@@ -24,26 +28,22 @@ class SelectWalletCell: UITableViewCell {
         selectionStyle = .none
         accessoryType = .disclosureIndicator
         
-        if let imageView = imageView, let textLabel = textLabel {
-            imageView.contentMode = .scaleAspectFit
-            imageView.layer.cornerRadius = 20
-            imageView.layer.masksToBounds = true
-            
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                imageView.widthAnchor.constraint(equalToConstant: 40),
-                imageView.heightAnchor.constraint(equalToConstant: 40),
-                imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-                imageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20)
-            ])
-            
-            textLabel.textAlignment = .left
-            
-            textLabel.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                textLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-                textLabel.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 20)
-            ])
+        contentView.addSubview(iconImageView)
+        contentView.addSubview(nameLabel)
+        
+        iconImageView.layer.masksToBounds = true
+        iconImageView.layer.cornerRadius = 20
+        iconImageView.contentMode = .scaleAspectFit
+        
+        iconImageView.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(10)
+            make.width.height.equalTo(40)
+            make.centerY.equalToSuperview()
+        }
+        nameLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalTo(iconImageView.snp.right).offset(10)
         }
     }
 }
+

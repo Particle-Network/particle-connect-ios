@@ -20,32 +20,7 @@ extension WalletType: CaseIterable {
     }
 
     var imageName: String {
-        switch self {
-        case .particle:
-            return "particle"
-        case .metaMask:
-            return "login_metamask"
-        case .rainbow:
-            return "login_rainbow"
-        case .trust:
-            return "login_trust"
-        case .imtoken:
-            return "login_imtoken"
-        case .bitkeep:
-            return "login_bitkeep"
-        case .walletConnect:
-            return "login_wallet_connect"
-        case .phantom:
-            return "login_phantom"
-        case .evmPrivateKey:
-            return "ethereum"
-        case .solanaPrivateKey:
-            return "solana"
-        case .gnosis:
-            return "login_gnosis"
-        case .custom:
-            return "login_wallet_connect"
-        }
+        return self.info.icon
     }
 }
 

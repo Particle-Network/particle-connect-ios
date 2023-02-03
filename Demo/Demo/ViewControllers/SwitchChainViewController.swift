@@ -33,6 +33,10 @@ typealias TronNetwork = ParticleNetwork.TronNetwork
 typealias OKCNetwork = ParticleNetwork.OKCNetwork
 typealias ThunderCoreNetwork = ParticleNetwork.ThunderCoreNetwork
 typealias CronosNetwork = ParticleNetwork.CronosNetwork
+typealias OasisEmeraldNetwork = ParticleNetwork.OasisEmeraldNetwork
+typealias GnosisNetwork = ParticleNetwork.GnosisNetwork
+typealias CeloNetwork = ParticleNetwork.CeloNetwork
+typealias KlaytnNetwork = ParticleNetwork.KlaytnNetwork
 
 class SwitchChainViewController: UIViewController {
     let bag = DisposeBag()
@@ -67,8 +71,8 @@ class SwitchChainViewController: UIViewController {
         data.append([Chain.fantom(.mainnet).name: [
             FantomNetwork.mainnet.rawValue, FantomNetwork.testnet.rawValue
         ]])
-        data.append([Chain.arbitrum(.mainnet).name: [
-            ArbitrumNetwork.mainnet.rawValue, ArbitrumNetwork.goerli.rawValue
+        data.append([Chain.arbitrum(.one).name: [
+            ArbitrumNetwork.one.rawValue, ArbitrumNetwork.nova.rawValue, ArbitrumNetwork.goerli.rawValue
         ]])
         data.append([Chain.moonbeam(.mainnet).name: [
             MoonbeamNetwork.mainnet.rawValue, MoonbeamNetwork.testnet.rawValue
@@ -105,6 +109,18 @@ class SwitchChainViewController: UIViewController {
         ]])
         data.append([Chain.cronos(.mainnet).name: [
             CronosNetwork.mainnet.rawValue, CronosNetwork.testnet.rawValue
+        ]])
+
+        data.append([Chain.gnosis(.mainnet).name: [
+            GnosisNetwork.mainnet.rawValue, GnosisNetwork.testnet.rawValue
+        ]])
+
+        data.append([Chain.celo(.mainnet).name: [
+            CeloNetwork.mainnet.rawValue, CeloNetwork.testnet.rawValue
+        ]])
+
+        data.append([Chain.klaytn(.mainnet).name: [
+            KlaytnNetwork.mainnet.rawValue, KlaytnNetwork.testnet.rawValue
         ]])
     }
 
@@ -167,7 +183,7 @@ extension SwitchChainViewController: UITableViewDelegate {
             chainInfo = .avalanche(AvalancheNetwork(rawValue: network)!)
         case Chain.fantom(.mainnet).name:
             chainInfo = .fantom(FantomNetwork(rawValue: network)!)
-        case Chain.arbitrum(.mainnet).name:
+        case Chain.arbitrum(.one).name:
             chainInfo = .arbitrum(ArbitrumNetwork(rawValue: network)!)
         case Chain.moonbeam(.mainnet).name:
             chainInfo = .moonbeam(MoonbeamNetwork(rawValue: network)!)
@@ -212,4 +228,3 @@ extension SwitchChainViewController: UITableViewDelegate {
 //        }
     }
 }
-

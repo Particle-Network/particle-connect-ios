@@ -36,7 +36,7 @@ class ImportPrivateKeyViewController: UIViewController {
     
     @IBAction func importPrivateKey() {
         let privateKey = textView.text ?? ""
-        guard !privateKey.isEmpty else { return }
+//        guard !privateKey.isEmpty else { return }
         
         var adapter: ConnectAdapter
         if chainType == .solana {
@@ -49,19 +49,19 @@ class ImportPrivateKeyViewController: UIViewController {
             }!
         }
         
-        var observable: Single<Account?>
-        if privateKey.split(separator: " ").count > 10 {
-            observable = (adapter as! LocalAdapter).importWalletFromMnemonic(privateKey)
+        var single: Single<Account?>
+        if privateKey.split(separator: " ").count > 4 {
+            single = (adapter as! LocalAdapter).importWalletFromMnemonic(privateKey)
         } else {
-            observable = (adapter as! LocalAdapter).importWalletFromPrivateKey(privateKey)
+            single = (adapter as! LocalAdapter).importWalletFromPrivateKey(privateKey)
         }
         
-        observable.subscribe { [weak self] result in
+        single.subscribe { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .failure(let error):
                 print(error)
-                self.showToast(title: "Error", message: error.localizedDescription)
+                self.showToast(title: "Error", message: "\(error)")
             case .success(let account):
                 print(account)
                 if let account = account {

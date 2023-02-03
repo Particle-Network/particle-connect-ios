@@ -26,18 +26,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
 
+        var adapters: [ConnectAdapter] = [
+            EVMConnectAdapter(),
+            SolanaConnectAdapter(),
+            MetaMaskConnectAdapter(),
+            ParticleConnectAdapter(),
+            PhantomConnectAdapter(),
+            WalletConnectAdapter(),
+            RainbowConnectAdapter(),
+            BitkeepConnectAdapter(),
+            ImtokenConnectAdapter(),
+            TrustConnectAdapter(),
+            GnosisConnectAdapter()
+        ]
+
+        let moreAdapterClasses: [WalletConnectAdapter.Type] =
+            [ZerionConnectAdapter.self,
+             MathConnectAdapter.self,
+             OmniConnectAdapter.self,
+             Inch1ConnectAdapter.self,
+             ZengoConnectAdapter.self,
+             AlphaConnectAdapter.self,
+             BitpieConnectAdapter.self]
+
+        adapters.append(contentsOf: moreAdapterClasses.map {
+            $0.init()
+        })
+
         ParticleConnect.initialize(env: .debug, chainInfo: .ethereum(.mainnet), dAppData: DAppMetaData(name: "Particle Connect", icon: URL(string: "https://connect.particle.network/icons/512.png")!, url: URL(string: "https://connect.particle.network")!)) {
-            [ParticleConnectAdapter(),
-             WalletConnectAdapter(),
-             MetaMaskConnectAdapter(),
-             PhantomConnectAdapter(),
-             EVMConnectAdapter(),
-             SolanaConnectAdapter(),
-             ImtokenConnectAdapter(),
-             BitkeepConnectAdapter(),
-             RainbowConnectAdapter(),
-             TrustConnectAdapter(),
-             GnosisConnectAdapter()]
+            adapters
         }
 
         return true

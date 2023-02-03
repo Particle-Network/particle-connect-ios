@@ -22,6 +22,11 @@
 		<string>phantom</string>
 		<string>bitkeep</string>
 		<string>gnosissafe</string>
+        <string>zerion</string>
+        <string>mathwallet</string>
+        <string>1inch</string>
+        <string>awallet</string>
+        <string>bitpie</string>
 	</array>
 </dict>
 </plist>
