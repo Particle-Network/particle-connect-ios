@@ -37,6 +37,9 @@ typealias OasisEmeraldNetwork = ParticleNetwork.OasisEmeraldNetwork
 typealias GnosisNetwork = ParticleNetwork.GnosisNetwork
 typealias CeloNetwork = ParticleNetwork.CeloNetwork
 typealias KlaytnNetwork = ParticleNetwork.KlaytnNetwork
+typealias ScrollNetwork = ParticleNetwork.ScrollNetwork
+typealias ZkSyncV2Network = ParticleNetwork.ZkSyncV2Network
+typealias MetisNetwork = ParticleNetwork.MetisNetwork
 
 class SwitchChainViewController: UIViewController {
     let bag = DisposeBag()
@@ -121,6 +124,18 @@ class SwitchChainViewController: UIViewController {
 
         data.append([Chain.klaytn(.mainnet).name: [
             KlaytnNetwork.mainnet.rawValue, KlaytnNetwork.testnet.rawValue
+        ]])
+
+        data.append([Chain.scroll(.testnetL1).name: [
+            ScrollNetwork.testnetL1.rawValue, ScrollNetwork.testnetL2.rawValue
+        ]])
+
+        data.append([Chain.zkSyncV2(.mainnet).name: [
+            ZkSyncV2Network.mainnet.rawValue, ZkSyncV2Network.testnet.rawValue
+        ]])
+
+        data.append([Chain.metis(.mainnet).name: [
+            MetisNetwork.mainnet.rawValue, MetisNetwork.goerli.rawValue
         ]])
     }
 
@@ -209,6 +224,14 @@ extension SwitchChainViewController: UITableViewDelegate {
             chainInfo = .thunderCore(ThunderCoreNetwork(rawValue: network)!)
         case Chain.cronos(.mainnet).name:
             chainInfo = .cronos(CronosNetwork(rawValue: network)!)
+        case Chain.klaytn(.mainnet).name:
+            chainInfo = .klaytn(KlaytnNetwork(rawValue: network)!)
+        case Chain.scroll(.testnetL1).name:
+            chainInfo = .scroll(ScrollNetwork(rawValue: network)!)
+        case Chain.zkSyncV2(.mainnet).name:
+            chainInfo = .zkSyncV2(ZkSyncV2Network(rawValue: network)!)
+        case Chain.metis(.mainnet).name:
+            chainInfo = .metis(MetisNetwork(rawValue: network)!)
         default:
             chainInfo = .ethereum(.mainnet)
         }
@@ -228,3 +251,4 @@ extension SwitchChainViewController: UITableViewDelegate {
 //        }
     }
 }
+
