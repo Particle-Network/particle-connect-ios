@@ -17,16 +17,16 @@ Modular Swift wallet adapters and components for EVM & Solana chains. Manage wal
 # Prerequisites
 Install the following:
 
-Xcode 13.3.1 or higher
+Xcode 14.1 or higher
 
-| Xcode version                | 13.3.1 ~ 14.2 | 
+| Xcode version                | 14.1 ~ 14.2 | 
 |------------------------------|---------------|
-| ConnectCommon                | 0.1.48        |
-| ParticleConnect              | 0.1.48        |
-| ConnectWalletConnectAdapter  | 0.1.48        |
-| ConnectEVMConnectAdapter     | 0.1.48        |
-| ConnectPhantomConnectAdapter | 0.1.48        |
-| ConnectSolanaConnectAdapter  | 0.1.48        |
+| ConnectCommon                | 0.1.50        |
+| ParticleConnect              | 0.1.50        |
+| ConnectWalletConnectAdapter  | 0.1.50        |
+| ConnectEVMConnectAdapter     | 0.1.50        |
+| ConnectPhantomConnectAdapter | 0.1.50        |
+| ConnectSolanaConnectAdapter  | 0.1.50        |
 
 ### 🔌 Podfile request
 From 0.1.45, you should add more in podfile
