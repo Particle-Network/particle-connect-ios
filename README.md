@@ -21,12 +21,12 @@ Xcode 14.1 or higher
 
 | Xcode version                | 14.1 ~ 14.2 | 
 |------------------------------|---------------|
-| ConnectCommon                | 0.1.50        |
-| ParticleConnect              | 0.1.50        |
-| ConnectWalletConnectAdapter  | 0.1.50        |
-| ConnectEVMConnectAdapter     | 0.1.50        |
-| ConnectPhantomConnectAdapter | 0.1.50        |
-| ConnectSolanaConnectAdapter  | 0.1.50        |
+| ConnectCommon                | 0.1.51        |
+| ParticleConnect              | 0.1.51        |
+| ConnectWalletConnectAdapter  | 0.1.51        |
+| ConnectEVMConnectAdapter     | 0.1.51        |
+| ConnectPhantomConnectAdapter | 0.1.51        |
+| ConnectSolanaConnectAdapter  | 0.1.51        |
 
 ### 🔌 Podfile request
 From 0.1.45, you should add more in podfile

@@ -38,7 +38,7 @@ typealias GnosisNetwork = ParticleNetwork.GnosisNetwork
 typealias CeloNetwork = ParticleNetwork.CeloNetwork
 typealias KlaytnNetwork = ParticleNetwork.KlaytnNetwork
 typealias ScrollNetwork = ParticleNetwork.ScrollNetwork
-typealias ZkSyncV2Network = ParticleNetwork.ZkSyncV2Network
+typealias ZkSyncNetwork = ParticleNetwork.ZkSyncNetwork
 typealias MetisNetwork = ParticleNetwork.MetisNetwork
 
 class SwitchChainViewController: UIViewController {
@@ -126,12 +126,12 @@ class SwitchChainViewController: UIViewController {
             KlaytnNetwork.mainnet.rawValue, KlaytnNetwork.testnet.rawValue
         ]])
 
-        data.append([Chain.scroll(.testnetL1).name: [
-            ScrollNetwork.testnetL1.rawValue, ScrollNetwork.testnetL2.rawValue
+        data.append([Chain.scroll(.testnet).name: [
+            ScrollNetwork.testnet.rawValue
         ]])
 
-        data.append([Chain.zkSyncV2(.mainnet).name: [
-            ZkSyncV2Network.mainnet.rawValue, ZkSyncV2Network.testnet.rawValue
+        data.append([Chain.zkSync(.mainnet).name: [
+            ZkSyncNetwork.mainnet.rawValue, ZkSyncNetwork.testnet.rawValue
         ]])
 
         data.append([Chain.metis(.mainnet).name: [
@@ -226,10 +226,10 @@ extension SwitchChainViewController: UITableViewDelegate {
             chainInfo = .cronos(CronosNetwork(rawValue: network)!)
         case Chain.klaytn(.mainnet).name:
             chainInfo = .klaytn(KlaytnNetwork(rawValue: network)!)
-        case Chain.scroll(.testnetL1).name:
+        case Chain.scroll(.testnet).name:
             chainInfo = .scroll(ScrollNetwork(rawValue: network)!)
-        case Chain.zkSyncV2(.mainnet).name:
-            chainInfo = .zkSyncV2(ZkSyncV2Network(rawValue: network)!)
+        case Chain.zkSync(.mainnet).name:
+            chainInfo = .zkSync(ZkSyncNetwork(rawValue: network)!)
         case Chain.metis(.mainnet).name:
             chainInfo = .metis(MetisNetwork(rawValue: network)!)
         default:
