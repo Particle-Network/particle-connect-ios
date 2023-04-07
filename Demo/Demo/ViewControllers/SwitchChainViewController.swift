@@ -40,6 +40,10 @@ typealias KlaytnNetwork = ParticleNetwork.KlaytnNetwork
 typealias ScrollNetwork = ParticleNetwork.ScrollNetwork
 typealias ZkSyncNetwork = ParticleNetwork.ZkSyncNetwork
 typealias MetisNetwork = ParticleNetwork.MetisNetwork
+typealias ConfluxESpaceNetwork = ParticleNetwork.ConfluxESpaceNetwork
+typealias MapoNetwork = ParticleNetwork.MapoNetwork
+typealias PolygonZkEVMNetwork = ParticleNetwork.PolygonZkEVMNetwork
+typealias BaseNetwork = ParticleNetwork.BaseNetwork
 
 class SwitchChainViewController: UIViewController {
     let bag = DisposeBag()
@@ -56,86 +60,102 @@ class SwitchChainViewController: UIViewController {
     }
 
     func configureData() {
-        data.append([Chain.solana(.mainnet).name: [
+        data.append([Chain.solana(.mainnet).uiName: [
             SolanaNetwork.mainnet.rawValue, SolanaNetwork.testnet.rawValue, SolanaNetwork.devnet.rawValue
         ]])
-        data.append([Chain.ethereum(.mainnet).name: [
-            EthereumNetwork.mainnet.rawValue, EthereumNetwork.goerli.rawValue
+        data.append([Chain.ethereum(.mainnet).uiName: [
+            EthereumNetwork.mainnet.rawValue, EthereumNetwork.goerli.rawValue, EthereumNetwork.sepolia.rawValue
         ]])
-        data.append([Chain.bsc(.mainnet).name: [
+        data.append([Chain.bsc(.mainnet).uiName: [
             BscNetwork.mainnet.rawValue, BscNetwork.testnet.rawValue
         ]])
-        data.append([Chain.polygon(.mainnet).name: [
+        data.append([Chain.polygon(.mainnet).uiName: [
             PolygonNetwork.mainnet.rawValue, PolygonNetwork.mumbai.rawValue
         ]])
-        data.append([Chain.avalanche(.mainnet).name: [
+        data.append([Chain.avalanche(.mainnet).uiName: [
             AvalancheNetwork.mainnet.rawValue, AvalancheNetwork.testnet.rawValue
         ]])
-        data.append([Chain.fantom(.mainnet).name: [
+        data.append([Chain.fantom(.mainnet).uiName: [
             FantomNetwork.mainnet.rawValue, FantomNetwork.testnet.rawValue
         ]])
-        data.append([Chain.arbitrum(.one).name: [
+        data.append([Chain.arbitrum(.one).uiName: [
             ArbitrumNetwork.one.rawValue, ArbitrumNetwork.nova.rawValue, ArbitrumNetwork.goerli.rawValue
         ]])
-        data.append([Chain.moonbeam(.mainnet).name: [
+        data.append([Chain.moonbeam(.mainnet).uiName: [
             MoonbeamNetwork.mainnet.rawValue, MoonbeamNetwork.testnet.rawValue
         ]])
-        data.append([Chain.moonriver(.mainnet).name: [
+        data.append([Chain.moonriver(.mainnet).uiName: [
             MoonriverNetwork.mainnet.rawValue, MoonriverNetwork.testnet.rawValue
         ]])
-        data.append([Chain.heco(.mainnet).name: [
+        data.append([Chain.heco(.mainnet).uiName: [
             HecoNetwork.mainnet.rawValue, HecoNetwork.testnet.rawValue
         ]])
-        data.append([Chain.aurora(.mainnet).name: [
+        data.append([Chain.aurora(.mainnet).uiName: [
             AuroraNetwork.mainnet.rawValue, AuroraNetwork.testnet.rawValue
         ]])
-        data.append([Chain.harmony(.mainnet).name: [
+        data.append([Chain.harmony(.mainnet).uiName: [
             HarmonyNetwork.mainnet.rawValue, HarmonyNetwork.testnet.rawValue
         ]])
-        data.append([Chain.kcc(.mainnet).name: [
+        data.append([Chain.kcc(.mainnet).uiName: [
             KccNetwork.mainnet.rawValue, KccNetwork.testnet.rawValue
         ]])
-        data.append([Chain.optimism(.mainnet).name: [
+        data.append([Chain.optimism(.mainnet).uiName: [
             OptimismNetwork.mainnet.rawValue, OptimismNetwork.goerli.rawValue
         ]])
-        data.append([Chain.platON(.mainnet).name: [
+        data.append([Chain.platON(.mainnet).uiName: [
             PlatONNetwork.mainnet.rawValue, PlatONNetwork.testnet.rawValue
         ]])
-        data.append([Chain.tron(.mainnet).name: [
+        data.append([Chain.tron(.mainnet).uiName: [
             TronNetwork.mainnet.rawValue, TronNetwork.shasta.rawValue, TronNetwork.nile.rawValue
         ]])
-        data.append([Chain.okc(.mainnet).name: [
+        data.append([Chain.okc(.mainnet).uiName: [
             OKCNetwork.mainnet.rawValue, OKCNetwork.testnet.rawValue
         ]])
-        data.append([Chain.thunderCore(.mainnet).name: [
+        data.append([Chain.thunderCore(.mainnet).uiName: [
             ThunderCoreNetwork.mainnet.rawValue, ThunderCoreNetwork.testnet.rawValue
         ]])
-        data.append([Chain.cronos(.mainnet).name: [
+        data.append([Chain.cronos(.mainnet).uiName: [
             CronosNetwork.mainnet.rawValue, CronosNetwork.testnet.rawValue
         ]])
 
-        data.append([Chain.gnosis(.mainnet).name: [
+        data.append([Chain.gnosis(.mainnet).uiName: [
             GnosisNetwork.mainnet.rawValue, GnosisNetwork.testnet.rawValue
         ]])
 
-        data.append([Chain.celo(.mainnet).name: [
+        data.append([Chain.celo(.mainnet).uiName: [
             CeloNetwork.mainnet.rawValue, CeloNetwork.testnet.rawValue
         ]])
 
-        data.append([Chain.klaytn(.mainnet).name: [
+        data.append([Chain.klaytn(.mainnet).uiName: [
             KlaytnNetwork.mainnet.rawValue, KlaytnNetwork.testnet.rawValue
         ]])
 
-        data.append([Chain.scroll(.testnet).name: [
+        data.append([Chain.scroll(.testnet).uiName: [
             ScrollNetwork.testnet.rawValue
         ]])
 
-        data.append([Chain.zkSync(.mainnet).name: [
+        data.append([Chain.zkSync(.mainnet).uiName: [
             ZkSyncNetwork.mainnet.rawValue, ZkSyncNetwork.testnet.rawValue
         ]])
 
-        data.append([Chain.metis(.mainnet).name: [
+        data.append([Chain.metis(.mainnet).uiName: [
             MetisNetwork.mainnet.rawValue, MetisNetwork.goerli.rawValue
+        ]])
+
+        data.append([Chain.confluxESpace(.mainnet).uiName: [
+            ConfluxESpaceNetwork.mainnet.rawValue, ConfluxESpaceNetwork.testnet.rawValue
+        ]])
+
+        data.append([Chain.mapo(.mainnet).uiName: [
+            MapoNetwork.mainnet.rawValue, MapoNetwork.testnet.rawValue
+        ]])
+
+        data.append([Chain.polygonZkEVM(.mainnet).uiName: [
+            PolygonZkEVMNetwork.mainnet.rawValue, PolygonZkEVMNetwork.testnet.rawValue
+        ]])
+
+        data.append([Chain.base(.testnet).uiName: [
+            BaseNetwork.testnet.rawValue
         ]])
     }
 
@@ -186,52 +206,60 @@ extension SwitchChainViewController: UITableViewDelegate {
 
         var chainInfo: Chain
         switch name {
-        case Chain.solana(.mainnet).name:
+        case Chain.solana(.mainnet).uiName:
             chainInfo = .solana(SolanaNetwork(rawValue: network)!)
-        case Chain.ethereum(.mainnet).name:
+        case Chain.ethereum(.mainnet).uiName:
             chainInfo = .ethereum(EthereumNetwork(rawValue: network)!)
-        case Chain.bsc(.mainnet).name:
+        case Chain.bsc(.mainnet).uiName:
             chainInfo = .bsc(BscNetwork(rawValue: network)!)
-        case Chain.polygon(.mainnet).name:
+        case Chain.polygon(.mainnet).uiName:
             chainInfo = .polygon(PolygonNetwork(rawValue: network)!)
-        case Chain.avalanche(.mainnet).name:
+        case Chain.avalanche(.mainnet).uiName:
             chainInfo = .avalanche(AvalancheNetwork(rawValue: network)!)
-        case Chain.fantom(.mainnet).name:
+        case Chain.fantom(.mainnet).uiName:
             chainInfo = .fantom(FantomNetwork(rawValue: network)!)
-        case Chain.arbitrum(.one).name:
+        case Chain.arbitrum(.one).uiName:
             chainInfo = .arbitrum(ArbitrumNetwork(rawValue: network)!)
-        case Chain.moonbeam(.mainnet).name:
+        case Chain.moonbeam(.mainnet).uiName:
             chainInfo = .moonbeam(MoonbeamNetwork(rawValue: network)!)
-        case Chain.moonriver(.mainnet).name:
+        case Chain.moonriver(.mainnet).uiName:
             chainInfo = .moonriver(MoonriverNetwork(rawValue: network)!)
-        case Chain.heco(.mainnet).name:
+        case Chain.heco(.mainnet).uiName:
             chainInfo = .heco(HecoNetwork(rawValue: network)!)
-        case Chain.aurora(.mainnet).name:
+        case Chain.aurora(.mainnet).uiName:
             chainInfo = .aurora(AuroraNetwork(rawValue: network)!)
-        case Chain.harmony(.mainnet).name:
+        case Chain.harmony(.mainnet).uiName:
             chainInfo = .harmony(HarmonyNetwork(rawValue: network)!)
-        case Chain.kcc(.mainnet).name:
+        case Chain.kcc(.mainnet).uiName:
             chainInfo = .kcc(KccNetwork(rawValue: network)!)
-        case Chain.optimism(.mainnet).name:
+        case Chain.optimism(.mainnet).uiName:
             chainInfo = .optimism(OptimismNetwork(rawValue: network)!)
-        case Chain.platON(.mainnet).name:
+        case Chain.platON(.mainnet).uiName:
             chainInfo = .platON(PlatONNetwork(rawValue: network)!)
-        case Chain.tron(.mainnet).name:
+        case Chain.tron(.mainnet).uiName:
             chainInfo = .tron(TronNetwork(rawValue: network)!)
-        case Chain.okc(.mainnet).name:
+        case Chain.okc(.mainnet).uiName:
             chainInfo = .okc(OKCNetwork(rawValue: network)!)
-        case Chain.thunderCore(.mainnet).name:
+        case Chain.thunderCore(.mainnet).uiName:
             chainInfo = .thunderCore(ThunderCoreNetwork(rawValue: network)!)
-        case Chain.cronos(.mainnet).name:
+        case Chain.cronos(.mainnet).uiName:
             chainInfo = .cronos(CronosNetwork(rawValue: network)!)
-        case Chain.klaytn(.mainnet).name:
+        case Chain.klaytn(.mainnet).uiName:
             chainInfo = .klaytn(KlaytnNetwork(rawValue: network)!)
-        case Chain.scroll(.testnet).name:
+        case Chain.scroll(.testnet).uiName:
             chainInfo = .scroll(ScrollNetwork(rawValue: network)!)
-        case Chain.zkSync(.mainnet).name:
+        case Chain.zkSync(.mainnet).uiName:
             chainInfo = .zkSync(ZkSyncNetwork(rawValue: network)!)
-        case Chain.metis(.mainnet).name:
+        case Chain.metis(.mainnet).uiName:
             chainInfo = .metis(MetisNetwork(rawValue: network)!)
+        case Chain.confluxESpace(.mainnet).uiName:
+            chainInfo = .confluxESpace(ConfluxESpaceNetwork(rawValue: network)!)
+        case Chain.mapo(.mainnet).uiName:
+            chainInfo = .mapo(MapoNetwork(rawValue: network)!)
+        case Chain.polygonZkEVM(.mainnet).uiName:
+            chainInfo = .polygonZkEVM(PolygonZkEVMNetwork(rawValue: network)!)
+        case Chain.base(.testnet).uiName:
+            chainInfo = .base(BaseNetwork(rawValue: network)!)
         default:
             chainInfo = .ethereum(.mainnet)
         }
