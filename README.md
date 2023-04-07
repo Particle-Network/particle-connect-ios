@@ -19,7 +19,7 @@ Install the following:
 
 Xcode 14.1 or higher
 
-| Xcode version                | 14.1 ~ 14.2 | 
+| Xcode version                | 14.1 or higher | 
 |------------------------------|---------------|
 | ConnectCommon                | 0.1.52        |
 | ParticleConnect              | 0.1.52        |
