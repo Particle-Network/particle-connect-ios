@@ -167,7 +167,7 @@ class ActionViewController: UIViewController {
     @IBAction func signTypedData() {
         let typedData = getTypedDataV4()
         sourceTextView.text = typedData
-        adapter.signTypeData(publicAddress: getSender(), data: typedData).subscribe { [weak self] result in
+        adapter.signTypedData(publicAddress: getSender(), data: typedData).subscribe { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .failure(let error):
@@ -546,7 +546,7 @@ extension ActionViewController {
 
 extension ActionViewController {
     func getRecentBlockHash() -> Single<String> {
-        let request: Single<ConnectCommon.Response<RecentBlockHash>> = api.request(path: "", method: "getRecentBlockhash")
+        let request: Single<Response<RecentBlockHash>> = api.request(method: "getRecentBlockhash")
         return request.map {
             $0.result!.value.blockhash
         }
