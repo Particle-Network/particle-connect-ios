@@ -88,7 +88,7 @@ class SwitchChainViewController: UIViewController {
             MoonriverNetwork.mainnet.rawValue, MoonriverNetwork.testnet.rawValue
         ]])
         data.append([Chain.heco(.mainnet).uiName: [
-            HecoNetwork.mainnet.rawValue, HecoNetwork.testnet.rawValue
+            HecoNetwork.mainnet.rawValue
         ]])
         data.append([Chain.aurora(.mainnet).uiName: [
             AuroraNetwork.mainnet.rawValue, AuroraNetwork.testnet.rawValue

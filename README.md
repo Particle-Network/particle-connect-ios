@@ -21,12 +21,25 @@ Xcode 14.1 or higher
 
 | Xcode version                | 14.1 or higher | 
 |------------------------------|---------------|
-| ConnectCommon                | 0.1.53        |
-| ParticleConnect              | 0.1.53        |
-| ConnectWalletConnectAdapter  | 0.1.53        |
-| ConnectEVMConnectAdapter     | 0.1.53        |
-| ConnectPhantomConnectAdapter | 0.1.53        |
-| ConnectSolanaConnectAdapter  | 0.1.53        |
+| ConnectCommon                | 0.2.0        |
+| ParticleConnect              | 0.2.0        |
+| ConnectWalletConnectAdapter  | 0.2.0        |
+| ConnectEVMConnectAdapter     | 0.2.0        |
+| ConnectPhantomConnectAdapter | 0.2.0        |
+| ConnectSolanaConnectAdapter  | 0.2.0        |
+
+### Migrating to WalletConnect v2
+Starting from version 0.2.0, WalletConnect v2 is supported.
+
+Set your wallet connect v2 project id to start
+```swift
+ParticleConnect.setWalletConnectV2ProjectId("your wallet connect v2 project")
+```
+
+Set the required chains for WalletConnect v2. If not set, the current chain will be used.
+```swift
+ParticleConnect.setWalletConnectV2SupportChainInfos([.ethereum(.mainnet)])
+```
 
 ### 🔌 Podfile request
 From 0.1.45, you should add more in podfile
