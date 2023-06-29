@@ -36,8 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             RainbowConnectAdapter(),
             BitkeepConnectAdapter(),
             ImtokenConnectAdapter(),
-            TrustConnectAdapter(),
-            GnosisConnectAdapter()
+            TrustConnectAdapter()
         ]
 
         let moreAdapterClasses: [WalletConnectAdapter.Type] =

@@ -12,7 +12,7 @@ import UIKit
 
 extension WalletType: CaseIterable {
     public static var allCases: [WalletType] {
-        return [.particle, .metaMask, .rainbow, .trust, .imtoken, .bitkeep, .walletConnect, .phantom, .evmPrivateKey, .solanaPrivateKey, .gnosis]
+        return [.particle, .metaMask, .rainbow, .trust, .imtoken, .bitkeep, .walletConnect, .phantom, .evmPrivateKey, .solanaPrivateKey]
     }
 
     var name: String {

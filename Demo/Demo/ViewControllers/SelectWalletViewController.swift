@@ -84,10 +84,7 @@ class SelectWalletViewController: UITableViewController {
             adapter = adapters.first {
                 $0.walletType == .walletConnect
             }!
-        case .gnosis:
-            adapter = adapters.first {
-                $0.walletType == .gnosis
-            }!
+       
         case .custom(let adapterInfo):
             adapter = adapters.first {
                 $0.walletType == .custom(info: adapterInfo)
