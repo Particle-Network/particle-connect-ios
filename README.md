@@ -21,12 +21,12 @@ Xcode 14.1 or higher
 
 | Xcode version                | 14.1 or higher | 
 |------------------------------|---------------|
-| ConnectCommon                | 0.2.2        |
-| ParticleConnect              | 0.2.2        |
-| ConnectWalletConnectAdapter  | 0.2.2        |
-| ConnectEVMConnectAdapter     | 0.2.2        |
-| ConnectPhantomConnectAdapter | 0.2.2        |
-| ConnectSolanaConnectAdapter  | 0.2.2        |
+| ConnectCommon                | 0.2.3        |
+| ParticleConnect              | 0.2.3        |
+| ConnectWalletConnectAdapter  | 0.2.3        |
+| ConnectEVMConnectAdapter     | 0.2.3        |
+| ConnectPhantomConnectAdapter | 0.2.3        |
+| ConnectSolanaConnectAdapter  | 0.2.3        |
 
 ### Migrating to WalletConnect v2
 Starting from version 0.2.0, WalletConnect v2 is supported.
