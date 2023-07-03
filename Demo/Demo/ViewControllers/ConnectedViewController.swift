@@ -15,7 +15,6 @@ import RxSwift
 import SDWebImage
 import SwiftUI
 import UIKit
-import WalletConnectSwift
 
 class ConnectedViewController: UITableViewController {
     let bag = DisposeBag()
