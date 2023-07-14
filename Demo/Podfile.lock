@@ -51,7 +51,7 @@ PODS:
   - ParticleAuthAdapter (0.2.5):
     - ConnectCommon
     - ParticleAuthService
-  - ParticleAuthService (0.15.0):
+  - ParticleAuthService (0.15.1):
     - CryptoSwift
     - ParticleNetworkBase
     - RxAlamofire (~> 6.1.1)
@@ -61,7 +61,7 @@ PODS:
     - SwiftyUserDefaults (~> 5.3.0)
   - ParticleConnect (0.2.5):
     - ConnectCommon
-  - ParticleNetworkBase (0.15.0):
+  - ParticleNetworkBase (0.15.1):
     - Base58.swift
     - BigInt (~> 5.2.0)
     - CryptoSwift
@@ -70,7 +70,7 @@ PODS:
     - RxSwift (= 6.5.0)
     - SwiftyJSON (~> 5.0)
     - SwiftyUserDefaults (~> 5.3.0)
-  - ParticleWalletAPI (0.15.0):
+  - ParticleWalletAPI (0.15.1):
     - CryptoSwift
     - GRDB.swift (= 5.26.1)
     - ParticleNetworkBase
@@ -151,10 +151,10 @@ DEPENDENCIES:
   - ConnectSolanaAdapter (= 0.2.5)
   - ConnectWalletConnectAdapter (= 0.2.5)
   - ParticleAuthAdapter (= 0.2.5)
-  - ParticleAuthService (= 0.15.0)
+  - ParticleAuthService (= 0.15.1)
   - ParticleConnect (= 0.2.5)
-  - ParticleNetworkBase (= 0.15.0)
-  - ParticleWalletAPI (= 0.15.0)
+  - ParticleNetworkBase (= 0.15.1)
+  - ParticleWalletAPI (= 0.15.1)
   - SDWebImage
   - SnapKit
 
@@ -206,10 +206,10 @@ SPEC CHECKSUMS:
   GRDB.swift: e98cd55ec99dea5da99355d588149063e4cfa0eb
   metamask-ios-sdk: 3c7b575d49b947cdf03ca1c766a9dec9f2c50b90
   ParticleAuthAdapter: 2a5b2123ef7748216174e932458ab401ae248d4a
-  ParticleAuthService: 96cc895409316ef606df8fe3652afa0756ebe2af
+  ParticleAuthService: 77e3bb03449712013e118854b709c9f95beb9f64
   ParticleConnect: 4c909b8786e8be031935cb4a3d96e0657c2d8907
-  ParticleNetworkBase: e0b1ad8d364d94a6233f59e5c1459c3f07e30953
-  ParticleWalletAPI: f13293fbecbc08158ddca06b317dbd80b5c0753c
+  ParticleNetworkBase: f88911683036720ba80dd668c3c2b31e6f1a1553
+  ParticleWalletAPI: 47da310ce772024f6de2fe8b71904a4bd897a65b
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
@@ -225,6 +225,6 @@ SPEC CHECKSUMS:
   TweetNacl: 3abf4d1d2082b0114e7a67410e300892448951e6
   WalletConnectSwiftV2: e769685773d3c4ee9facdf957337c8565fd4436b
 
-PODFILE CHECKSUM: dc0e0eda4a3c604339cb713e3a339a3073ef09e7
+PODFILE CHECKSUM: f3303bbd4cc2be204345184573b1ae53aa81a09a
 
 COCOAPODS: 1.12.0
