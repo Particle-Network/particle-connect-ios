@@ -216,7 +216,7 @@ extension LoginListViewController {
         let adapter = ParticleConnect.getAllAdapters().filter {
             $0.walletType == .particle
         }.first!
-        let config = ParticleConnectConfig(loginType: type, supportAuthType: supportAuthType, loginFormMode: loginFormMode, phoneOrEmailAccount: nil)
+        let config = ParticleAuthConfig(loginType: type, supportAuthType: supportAuthType, phoneOrEmailAccount: nil)
         adapter.connect(config).subscribe { [weak self] result in
             guard let self = self else { return }
             switch result {

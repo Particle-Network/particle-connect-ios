@@ -116,7 +116,7 @@ class SelectWalletViewController: UITableViewController {
             if walletType == .walletConnect {
                 single = (adapter as! WalletConnectAdapter).connectWithQrCode(from: self)
             } else if walletType == .particle {
-                single = adapter.connect(ParticleConnectConfig(loginType: .phone))
+                single = adapter.connect(ParticleAuthConfig(loginType: .phone))
             } else {
                 single = adapter.connect(ConnectConfig.none)
             }

@@ -14,6 +14,7 @@ import ConnectWalletConnectAdapter
 import ParticleAuthService
 import ParticleConnect
 import ParticleNetworkBase
+import ParticleAuthAdapter
 import UIKit
 
 @main
@@ -30,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             EVMConnectAdapter(),
             SolanaConnectAdapter(),
             MetaMaskConnectAdapter(),
-            ParticleConnectAdapter(),
+            ParticleAuthAdapter(),
             PhantomConnectAdapter(),
             WalletConnectAdapter(),
             RainbowConnectAdapter(),

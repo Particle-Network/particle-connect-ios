@@ -5,21 +5,19 @@ target 'Demo' do
 source 'https://github.com/CocoaPods/Specs.git'
   use_frameworks!
 
-  pod 'ConnectWalletConnectAdapter', '0.2.4'
-  pod 'ConnectEVMAdapter', '0.2.4'
-  pod 'ConnectSolanaAdapter', '0.2.4'
-  pod 'ConnectPhantomAdapter', '0.2.4'
-  pod 'ParticleConnect', '0.2.4'
-  pod 'ConnectCommon', '0.2.4'
+  pod 'ConnectWalletConnectAdapter', '0.2.5'
+  pod 'ConnectEVMAdapter', '0.2.5'
+  pod 'ConnectSolanaAdapter', '0.2.5'
+  pod 'ConnectPhantomAdapter', '0.2.5'
+  pod 'ParticleConnect', '0.2.5'
+  pod 'ConnectCommon', '0.2.5'
+  pod 'ParticleAuthAdapter', '0.2.5'
   
-  pod 'ParticleWalletAPI', '0.14.5'
-  pod 'ParticleNetworkBase', '0.14.5'
-  pod 'ParticleAuthService', '0.14.5'
+  pod 'ParticleWalletAPI', '0.15.0'
+  pod 'ParticleNetworkBase', '0.15.0'
+  pod 'ParticleAuthService', '0.15.0'
   pod 'SDWebImage'
   pod 'SnapKit'
-  
-  
-  pod 'WalletConnectSwiftV2', '1.6.10'
   
 
 end
@@ -32,6 +30,12 @@ post_install do |installer|
       config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
         end
       end
+    
+    installer.pods_project.build_configurations.each do |config|
+      config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "x86_64"
+      config.build_settings["ARCHS[sdk=iphonesimulator*]"] = "arm64"
+      config.build_settings["ARCHS[sdk=iphoneos*]"] = "arm64"
+    end
 
   # This is necessary for Xcode 14, because it signs resource bundles by default
   # when building for devices.

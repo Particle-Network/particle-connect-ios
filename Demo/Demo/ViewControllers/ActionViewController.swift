@@ -18,6 +18,7 @@ import ParticleWalletAPI
 import RxSwift
 import SwiftyJSON
 import UIKit
+import Base58_swift
 
 class ActionViewController: UIViewController {
     let bag = DisposeBag()
@@ -55,8 +56,6 @@ class ActionViewController: UIViewController {
         addressLabel.text = "Address:" + " " + getSender()
         
         (adapter as? WalletConnectAdapter)?.reconnectIfNeeded(publicAddress: getSender())
-        
-       
     }
     
     @IBAction func signAndSendTransactionNative() {
@@ -168,64 +167,6 @@ class ActionViewController: UIViewController {
         let typedData = getTypedDataV4()
         sourceTextView.text = typedData
         adapter.signTypedData(publicAddress: getSender(), data: typedData).subscribe { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .failure(let error):
-                print(error)
-                if let connectError = error as? ConnectError {
-                    self.resultTextView.text = "code = \(String(describing: connectError.code)), message = \(String(describing: connectError.message))"
-                } else {
-                    self.resultTextView.text = error.localizedDescription
-                }
-            case .success(let signedMessage):
-                print(signedMessage)
-                self.resultTextView.text = signedMessage
-            }
-        }.disposed(by: bag)
-    }
-    
-    @IBAction func signTypedDataV1() {
-        let typedData = getTypedDataV1()
-        sourceTextView.text = typedData
-        if (adapter is ParticleConnectAdapter) == false {
-            resultTextView.text = "Not support SignTypedDataV1"
-            return
-        }
-            
-        guard let data = typedData.data(using: .utf8) else { return }
-        let hexString = "0x" + data.toHexString()
-        let message = hexString
-        
-        ParticleAuthService.signTypedData(message, version: .v1).subscribe { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .failure(let error):
-                print(error)
-                if let connectError = error as? ConnectError {
-                    self.resultTextView.text = "code = \(String(describing: connectError.code)), message = \(String(describing: connectError.message))"
-                } else {
-                    self.resultTextView.text = error.localizedDescription
-                }
-            case .success(let signedMessage):
-                print(signedMessage)
-                self.resultTextView.text = signedMessage
-            }
-        }.disposed(by: bag)
-    }
-    
-    @IBAction func signTypedDataV3() {
-        let typedData = getTypedDataV3()
-        sourceTextView.text = typedData
-        if (adapter is ParticleConnectAdapter) == false {
-            resultTextView.text = "Not support SignTypedDataV3"
-            return
-        }
-            
-        guard let data = typedData.data(using: .utf8) else { return }
-        let hexString = "0x" + data.toHexString()
-        let message = hexString
-        
-        ParticleAuthService.signTypedData(message, version: .v3).subscribe { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .failure(let error):
