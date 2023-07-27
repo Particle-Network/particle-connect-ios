@@ -47,7 +47,7 @@ class SelectWalletViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let adapters = ParticleConnect.getAdapters(chainType: .solana) + ParticleConnect.getAdapters(chainType: .evm)
-        var walletType = data[indexPath.row]
+        let walletType = data[indexPath.row]
         
         var single: Single<Account?>
         var adapter: ConnectAdapter = adapters[0]
