@@ -471,7 +471,7 @@ extension ActionViewController {
     }
     
     private func getChainId() -> Int {
-        return ConnectManager.getChainId()
+        return ParticleNetwork.getChainInfo().chainId
     }
     
     private func isConnected() {
@@ -532,7 +532,7 @@ extension ActionViewController {
     
     func deployContract2() {
         let from = "0x2648cfE97e33345300Db8154670347b08643570b"
-        let txData = TxData(gasPrice: "0x77359400", gasLimit: "0x4C4B40", from: from, to: "", value: "0x0", data: getContractData(), chainId: ConnectManager.getChainId().toHexString())
+        let txData = TxData(gasPrice: "0x77359400", gasLimit: "0x4C4B40", from: from, to: "", value: "0x0", data: getContractData(), chainId: ParticleNetwork.getChainInfo().chainId.toHexString())
         let transaction = try! txData.serialize()
         print(transaction)
         adapter.signAndSendTransaction(publicAddress: from, transaction: transaction).subscribe { [weak self] result in

@@ -135,7 +135,7 @@ class SelectWalletViewController: UITableViewController {
                         // user also can login from metamask, rainbow and so on.
                         // the account.walletType is the real from
                         
-                        let connectWalletModel = ConnectWalletModel(publicAddress: account.publicAddress, name: account.name, url: account.url, icons: account.icons, description: account.description, walletType: account.walletType, chainId: ConnectManager.getChainId())
+                        let connectWalletModel = ConnectWalletModel(publicAddress: account.publicAddress, name: account.name, url: account.url, icons: account.icons, description: account.description, walletType: account.walletType, chainId: ParticleNetwork.getChainInfo().chainId)
                                             
                         WalletManager.shared.updateWallet(connectWalletModel)
                         
