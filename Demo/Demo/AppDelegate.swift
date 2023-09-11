@@ -47,7 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              Inch1ConnectAdapter.self,
              ZengoConnectAdapter.self,
              AlphaConnectAdapter.self,
-             BitpieConnectAdapter.self]
+             BitpieConnectAdapter.self,
+             OKXConnectAdapter.self]
 
         adapters.append(contentsOf: moreAdapterClasses.map {
             $0.init()

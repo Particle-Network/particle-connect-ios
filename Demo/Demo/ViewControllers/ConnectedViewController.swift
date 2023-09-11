@@ -29,8 +29,6 @@ class ConnectedViewController: UITableViewController {
         tableView.rowHeight = 62
         loadData()
         
-        
-        
         let evmAdapter = ParticleConnect.getAllAdapters().filter {
             $0.walletType == .evmPrivateKey
         }.first! as! EVMConnectAdapter
@@ -218,6 +216,4 @@ class ConnectedViewController: UITableViewController {
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction, copyAction])
         return configuration
     }
-    
-    
 }

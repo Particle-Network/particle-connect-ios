@@ -194,7 +194,6 @@ extension LoginListViewController: UITableViewDelegate {
             connect(walletType: .walletConnect)
         case .login_phantom:
             connect(walletType: .phantom)
-        
         }
     }
     
