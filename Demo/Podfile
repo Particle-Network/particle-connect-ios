@@ -5,17 +5,17 @@ target 'Demo' do
 source 'https://github.com/CocoaPods/Specs.git'
   use_frameworks!
 
-  pod 'ConnectWalletConnectAdapter', '0.2.10'
-  pod 'ConnectEVMAdapter', '0.2.10'
-  pod 'ConnectSolanaAdapter', '0.2.10'
-  pod 'ConnectPhantomAdapter', '0.2.10'
-  pod 'ParticleConnect', '0.2.10'
-  pod 'ConnectCommon', '0.2.10'
-  pod 'ParticleAuthAdapter', '0.2.10'
+  pod 'ConnectWalletConnectAdapter', '0.2.11'
+  pod 'ConnectEVMAdapter', '0.2.11'
+  pod 'ConnectSolanaAdapter', '0.2.11'
+  pod 'ConnectPhantomAdapter', '0.2.11'
+  pod 'ParticleConnect', '0.2.11'
+  pod 'ConnectCommon', '0.2.11'
+  pod 'ParticleAuthAdapter', '0.2.11'
   
-  pod 'ParticleWalletAPI', '1.1.1'
-  pod 'ParticleNetworkBase', '1.1.1'
-  pod 'ParticleAuthService', '1.1.1'
+  pod 'ParticleWalletAPI', '1.2.0'
+  pod 'ParticleNetworkBase', '1.2.0'
+  pod 'ParticleAuthService', '1.2.0'
   
   pod 'SnapKit'
   
