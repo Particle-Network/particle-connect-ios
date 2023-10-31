@@ -14,6 +14,10 @@ Modular Swift wallet adapters and components for EVM & Solana chains. Manage wal
 
 ![Particle Connect](https://static.particle.network/docs-images/particle-connect.jpeg)
 
+#### Note
+Please note that the SDK supports `ios-arm64` (iOS devices) and `ios-arm64-simulator` (M-series chip simulators). We currently do not support `ios-ax86_64-simulator` (Intel chip simulators).
+
+
 # Prerequisites
 Install the following:
 
