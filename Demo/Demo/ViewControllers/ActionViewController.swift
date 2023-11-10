@@ -6,6 +6,7 @@
 //  Copyright © 2022 ParticleNetwork. All rights reserved.
 //
 
+import Base58_swift
 import ConnectCommon
 import ConnectEVMAdapter
 import ConnectSolanaAdapter
@@ -18,7 +19,6 @@ import ParticleWalletAPI
 import RxSwift
 import SwiftyJSON
 import UIKit
-import Base58_swift
 
 class ActionViewController: UIViewController {
     let bag = DisposeBag()
@@ -230,57 +230,6 @@ class ActionViewController: UIViewController {
                 print(flag)
                 self.resultTextView.text = flag ? "True" : "False"
             }
-        }.disposed(by: bag)
-    }
-    
-    @IBAction func switchEthereumChain() {
-        let publicAddress = getSender()
-        let chainInfo = ParticleNetwork.getChainInfo()
-        let chainId: Int = chainInfo.chainId
-        adapter.switchEthereumChain(publicAddress: publicAddress, chainId: chainId).subscribe { [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case .failure(let error):
-                print(error)
-                if let connectError = error as? ConnectError {
-                    self.resultTextView.text = "code = \(String(describing: connectError.code)), message = \(String(describing: connectError.message))"
-                } else {
-                    self.resultTextView.text = error.localizedDescription
-                }
-            case .success(let flag):
-                print(flag)
-                self.resultTextView.text = flag
-                ParticleNetwork.setChainInfo(chainInfo)
-            }
-            
-        }.disposed(by: bag)
-    }
-    
-    @IBAction func addEthereumChain() {
-        // test add polygon testnet
-        let publicAddress = getSender()
-
-        let chainInfo = ParticleNetwork.getChainInfo()
-        let chainId: Int = chainInfo.chainId
-
-        adapter.addEthereumChain(publicAddress: publicAddress, chainId: chainId, chainName: nil, nativeCurrency: nil, rpcUrl: nil, blockExplorerUrl: nil).subscribe { [weak self] result in
-            guard let self = self else { return }
-
-            switch result {
-            case .failure(let error):
-                print(error)
-                if let connectError = error as? ConnectError {
-                    self.resultTextView.text = "code = \(String(describing: connectError.code)), message = \(String(describing: connectError.message))"
-                } else {
-                    self.resultTextView.text = error.localizedDescription
-                }
-            case .success(let flag):
-                print(flag)
-                self.resultTextView.text = flag
-                ParticleNetwork.setChainInfo(chainInfo)
-            }
-
         }.disposed(by: bag)
     }
     

@@ -50,7 +50,7 @@
                                 <rect key="frame" x="0.0" y="308" width="414" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QcO-A3-V9W">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="554"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yW1-8M-pdf">
                                                 <rect key="frame" x="30" y="55" width="354" height="35"/>
@@ -157,37 +157,6 @@
                                                     <action selector="verify" destination="4Eh-bM-hGh" eventType="touchUpInside" id="Of9-9o-x6I"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoO-Mg-Dlo">
-                                                <rect key="frame" x="30" y="413" width="354" height="35"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="35" id="0oR-0a-uz6"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="WalletSwitchEthereumChain">
-                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="switchEthereumChain" destination="4Eh-bM-hGh" eventType="touchUpInside" id="ENQ-qL-wUv"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TA7-50-jCB">
-                                                <rect key="frame" x="30" y="368" width="354" height="35"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="82t-hI-gEk"/>
-                                                    <constraint firstAttribute="height" constant="35" id="sMF-WV-m1D"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="WalletAddEthereumChain">
-                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="addEthereumChain" destination="4Eh-bM-hGh" eventType="touchUpInside" id="Ckt-wx-KNR"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Aa-He-ani">
                                                 <rect key="frame" x="30" y="100" width="354" height="35"/>
                                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
@@ -212,28 +181,21 @@
                                             <constraint firstItem="8Aa-He-ani" firstAttribute="leading" secondItem="QcO-A3-V9W" secondAttribute="leading" constant="30" id="7SR-ss-763"/>
                                             <constraint firstItem="7U0-Xr-UKO" firstAttribute="leading" secondItem="QcO-A3-V9W" secondAttribute="leading" constant="30" id="89A-XB-jz0"/>
                                             <constraint firstItem="yW1-8M-pdf" firstAttribute="top" secondItem="s5m-eN-YEw" secondAttribute="bottom" constant="10" id="Bhe-X3-tZh"/>
-                                            <constraint firstAttribute="trailing" secondItem="GoO-Mg-Dlo" secondAttribute="trailing" constant="30" id="GEl-i3-4OD"/>
                                             <constraint firstItem="ipV-V5-Yby" firstAttribute="top" secondItem="agE-gz-qYy" secondAttribute="bottom" constant="10" id="GZd-xJ-oPU"/>
-                                            <constraint firstItem="TA7-50-jCB" firstAttribute="top" secondItem="7U0-Xr-UKO" secondAttribute="bottom" constant="10" id="HuU-Zk-MCe"/>
                                             <constraint firstAttribute="trailing" secondItem="7U0-Xr-UKO" secondAttribute="trailing" constant="30" id="I67-HI-cM0"/>
                                             <constraint firstItem="uU1-0n-zvG" firstAttribute="leading" secondItem="QcO-A3-V9W" secondAttribute="leading" constant="30" id="KdK-Tt-oLr"/>
                                             <constraint firstAttribute="trailing" secondItem="agE-gz-qYy" secondAttribute="trailing" constant="30" id="NTq-7n-PZ5"/>
                                             <constraint firstItem="s5m-eN-YEw" firstAttribute="leading" secondItem="QcO-A3-V9W" secondAttribute="leading" constant="30" id="Otd-Er-ClF"/>
                                             <constraint firstAttribute="trailing" secondItem="s5m-eN-YEw" secondAttribute="trailing" constant="30" id="SFI-hH-XRv"/>
                                             <constraint firstItem="agE-gz-qYy" firstAttribute="top" secondItem="qWO-hN-BNa" secondAttribute="bottom" constant="8" symbolic="YES" id="XWc-f1-Gjh"/>
-                                            <constraint firstItem="TA7-50-jCB" firstAttribute="leading" secondItem="QcO-A3-V9W" secondAttribute="leading" constant="30" id="a81-dU-epO"/>
                                             <constraint firstItem="qWO-hN-BNa" firstAttribute="leading" secondItem="QcO-A3-V9W" secondAttribute="leading" constant="30" id="fYO-Oh-nGC"/>
-                                            <constraint firstAttribute="bottom" secondItem="GoO-Mg-Dlo" secondAttribute="bottom" id="gf8-vn-kp2"/>
                                             <constraint firstAttribute="trailing" secondItem="yW1-8M-pdf" secondAttribute="trailing" constant="30" id="hFO-jb-aGJ"/>
-                                            <constraint firstItem="GoO-Mg-Dlo" firstAttribute="top" secondItem="TA7-50-jCB" secondAttribute="bottom" constant="10" id="ib9-jR-tIE"/>
                                             <constraint firstItem="agE-gz-qYy" firstAttribute="leading" secondItem="QcO-A3-V9W" secondAttribute="leading" constant="30" id="j86-wp-gb4"/>
                                             <constraint firstItem="uU1-0n-zvG" firstAttribute="top" secondItem="8Aa-He-ani" secondAttribute="bottom" constant="10" id="jGB-6e-nmo"/>
                                             <constraint firstAttribute="trailing" secondItem="ipV-V5-Yby" secondAttribute="trailing" constant="30" id="lzP-s0-l1V"/>
-                                            <constraint firstItem="GoO-Mg-Dlo" firstAttribute="leading" secondItem="QcO-A3-V9W" secondAttribute="leading" constant="30" id="mhG-7f-QPw"/>
                                             <constraint firstItem="yW1-8M-pdf" firstAttribute="leading" secondItem="QcO-A3-V9W" secondAttribute="leading" constant="30" id="mmE-fh-XeM"/>
                                             <constraint firstAttribute="trailing" secondItem="uU1-0n-zvG" secondAttribute="trailing" constant="30" id="nis-1f-TIU"/>
                                             <constraint firstItem="8Aa-He-ani" firstAttribute="top" secondItem="yW1-8M-pdf" secondAttribute="bottom" constant="10" id="pnx-d0-D47"/>
-                                            <constraint firstAttribute="trailing" secondItem="TA7-50-jCB" secondAttribute="trailing" constant="30" id="sAv-F5-Tsz"/>
                                             <constraint firstItem="7U0-Xr-UKO" firstAttribute="top" secondItem="ipV-V5-Yby" secondAttribute="bottom" constant="10" id="sCF-rJ-lre"/>
                                             <constraint firstAttribute="trailing" secondItem="8Aa-He-ani" secondAttribute="trailing" constant="30" id="wqB-Nx-nvB"/>
                                             <constraint firstAttribute="trailing" secondItem="qWO-hN-BNa" secondAttribute="trailing" constant="30" id="zGC-W6-7iT"/>

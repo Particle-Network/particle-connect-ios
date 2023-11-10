@@ -27,7 +27,7 @@ class SwitchChainViewController: UIViewController {
     }
 
     func configureData() {
-        let chainInfos = ParticleNetwork.allNetworks()
+        let chainInfos = ParticleNetwork.allNetworks
 
         let groupDict = Dictionary(grouping: chainInfos, by: { $0.uiName })
 
