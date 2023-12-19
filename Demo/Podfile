@@ -13,9 +13,9 @@ source 'https://github.com/CocoaPods/Specs.git'
   pod 'ConnectCommon', '0.2.14'
   pod 'ParticleAuthAdapter', '0.2.14'
   
-  pod 'ParticleWalletAPI', '1.3.5'
-  pod 'ParticleNetworkBase', '1.3.5'
-  pod 'ParticleAuthService', '1.3.5'
+  pod 'ParticleWalletAPI', '1.3.7'
+  pod 'ParticleNetworkBase', '1.3.7'
+  pod 'ParticleAuthService', '1.3.7'
   
   pod 'SnapKit'
   
