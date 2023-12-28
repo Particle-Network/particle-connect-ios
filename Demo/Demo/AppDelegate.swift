@@ -53,13 +53,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.init()
         })
 
-        ParticleConnect.initialize(env: .debug, chainInfo: .ethereum(.mainnet), dAppData: .standard) {
+        ParticleConnect.initialize(env: .debug, chainInfo: .ethereum, dAppData: .standard) {
             adapters
         }
         
         ParticleConnect.setWalletConnectV2ProjectId("75ac08814504606fc06126541ace9df6")
         // Set the required chains for WalletConnect v2. If not set, the current chain will be used.
-//        ParticleConnect.setWalletConnectV2SupportChainInfos([.ethereum(.mainnet)])
+//        ParticleConnect.setWalletConnectV2SupportChainInfos([.ethereum])
 
         return true
     }

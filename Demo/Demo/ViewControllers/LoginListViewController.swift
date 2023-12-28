@@ -164,7 +164,7 @@ extension LoginListViewController: UITableViewDelegate {
         case .login_linkedin:
             login(type: .linkedin)
         case .login_private_key:
-            switch ParticleNetwork.getChainInfo().chain {
+            switch ParticleNetwork.getChainInfo().chainType {
             case .solana:
                 dismiss(animated: true) { [weak self] in
                     guard let self = self else { return }
@@ -242,12 +242,8 @@ extension LoginListViewController {
             $0.walletType == walletType
         }.first!
         
-        var single: Single<Account?>
-        if adapter.walletType == .walletConnect {
-            single = (adapter as! WalletConnectAdapter).connectWithQrCode(from: self)
-        } else {
-            single = adapter.connect(.none)
-        }
+        let single: Single<Account?> = adapter.connect(.none)
+        
         single.subscribe { [weak self] result in
             guard let self = self else { return }
             switch result {

@@ -54,8 +54,6 @@ class ActionViewController: UIViewController {
         resultTextView.textContainerInset = .init(top: 10, left: 10, bottom: 10, right: 10)
         
         addressLabel.text = "Address:" + " " + getSender()
-        
-        (adapter as? WalletConnectAdapter)?.reconnectIfNeeded(publicAddress: getSender())
     }
     
     @IBAction func signAndSendTransactionNative() {
@@ -312,7 +310,7 @@ class ActionViewController: UIViewController {
 
 extension ActionViewController {
     private func isSolana() -> Bool {
-        if (connectWalletModel.walletType == .particle && ConnectManager.getChainType() == .solana) || connectWalletModel.walletType == .solanaPrivateKey || connectWalletModel.walletType == .phantom {
+        if (connectWalletModel.walletType == .particle && ParticleNetwork.getChainInfo().chainType == .solana) || connectWalletModel.walletType == .solanaPrivateKey || connectWalletModel.walletType == .phantom {
             return true
         } else {
             return false
@@ -360,7 +358,7 @@ extension ActionViewController {
                 return $0.stringValue
             }
         } else {
-            if ParticleNetwork.getChainInfo().chain == .tron {
+            if ParticleNetwork.getChainInfo().isTron {
                 // send erc20 token
                 // This is JST, can get from https://nileex.io/join/getJoinPage
                 let params = ContractParams.erc20Transfer(contractAddress: "0x37349aeb75a32f8c4c090daff376cf975f5d2eba", to: "0x0cF3Ffe33E45ad43fcd0aa7016C590b5F629d9AA", amount: 1000000000000000000)

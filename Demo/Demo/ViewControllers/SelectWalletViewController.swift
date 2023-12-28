@@ -113,9 +113,7 @@ class SelectWalletViewController: UITableViewController {
             vc.chainType = .evm
             navigationController?.pushViewController(vc, animated: true)
         } else {
-            if walletType == .walletConnect {
-                single = (adapter as! WalletConnectAdapter).connectWithQrCode(from: self)
-            } else if walletType == .particle {
+            if walletType == .particle {
                 single = adapter.connect(ParticleAuthConfig(loginType: .phone))
             } else {
                 single = adapter.connect(ConnectConfig.none)
