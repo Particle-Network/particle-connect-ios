@@ -25,13 +25,23 @@ Xcode 14.1 or higher
 
 | Xcode version                | 14.1 or higher | 
 |------------------------------|---------------|
-| ConnectCommon                | 0.2.18        |
-| ParticleConnect              | 0.2.18        |
-| ParticleAuthAdapter          | 0.2.18        |
-| ConnectWalletConnectAdapter  | 0.2.18        |
-| ConnectEVMConnectAdapter     | 0.2.18        |
-| ConnectPhantomConnectAdapter | 0.2.18        |
-| ConnectSolanaConnectAdapter  | 0.2.18        |
+| ConnectCommon                | 0.2.19        |
+| ParticleConnect              | 0.2.19        |
+| ParticleAuthAdapter          | 0.2.19        |
+| ConnectWalletConnectAdapter  | 0.2.19        |
+| ConnectEVMConnectAdapter     | 0.2.19        |
+| ConnectPhantomConnectAdapter | 0.2.19        |
+| ConnectSolanaConnectAdapter  | 0.2.19        |
+
+## 🎯 Support Apple Privacy Manifests
+From version 0.2.19, all SDKs have been adapted to Apple's privacy requirements.
+
+The following third-party SDKs require the use of specific versions.
+```ruby
+pod 'SwiftyUserDefaults', :git => 'https://github.com/SunZhiC/SwiftyUserDefaults.git', :branch => 'master'
+# if you need ConnectWalletConnctAdapter, you should add this line.
+pod 'WalletConnectSwiftV2', :git => 'https://github.com/SunZhiC/WalletConnectSwiftV2.git', :branch => 'particle'
+```
 
 ### Migrating to WalletConnect v2
 Starting from version 0.2.0, WalletConnect v2 is supported.
