@@ -57,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             adapters
         }
         
+        // You should get this wallet connect project id from https://walletconnect.com/, its required by it.
         ParticleConnect.setWalletConnectV2ProjectId("75ac08814504606fc06126541ace9df6")
         // Set the required chains for WalletConnect v2. If not set, the current chain will be used.
 //        ParticleConnect.setWalletConnectV2SupportChainInfos([.ethereum])
