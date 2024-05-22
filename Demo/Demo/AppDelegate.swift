@@ -11,10 +11,10 @@ import ConnectEVMAdapter
 import ConnectPhantomAdapter
 import ConnectSolanaAdapter
 import ConnectWalletConnectAdapter
+import ParticleAuthAdapter
 import ParticleAuthService
 import ParticleConnect
 import ParticleNetworkBase
-import ParticleAuthAdapter
 import UIKit
 
 @main
@@ -37,26 +37,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             RainbowConnectAdapter(),
             BitkeepConnectAdapter(),
             ImtokenConnectAdapter(),
-            TrustConnectAdapter()
+            TrustConnectAdapter(),
+            ZerionConnectAdapter(),
+            MathConnectAdapter(),
+            Inch1ConnectAdapter(),
+            ZengoConnectAdapter(),
+            AlphaConnectAdapter(),
+            OKXConnectAdapter()
         ]
-
-        let moreAdapterClasses: [WalletConnectAdapter.Type] =
-            [ZerionConnectAdapter.self,
-             MathConnectAdapter.self,
-             OmniConnectAdapter.self,
-             Inch1ConnectAdapter.self,
-             ZengoConnectAdapter.self,
-             AlphaConnectAdapter.self,
-             OKXConnectAdapter.self]
-
-        adapters.append(contentsOf: moreAdapterClasses.map {
-            $0.init()
-        })
 
         ParticleConnect.initialize(env: .debug, chainInfo: .ethereum, dAppData: .standard) {
             adapters
         }
-        
+
         // You should get this wallet connect project id from https://walletconnect.com/, its required by it.
         ParticleConnect.setWalletConnectV2ProjectId("75ac08814504606fc06126541ace9df6")
         // Set the required chains for WalletConnect v2. If not set, the current chain will be used.
