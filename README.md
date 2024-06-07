@@ -25,13 +25,13 @@ Xcode 14.1 or higher
 
 | Xcode version                | 14.1 or higher | 
 |------------------------------|---------------|
-| ConnectCommon                | 0.2.23        |
-| ParticleConnect              | 0.2.23        |
-| ParticleAuthAdapter          | 0.2.23        |
-| ConnectWalletConnectAdapter  | 0.2.23        |
-| ConnectEVMConnectAdapter     | 0.2.23        |
-| ConnectPhantomConnectAdapter | 0.2.23        |
-| ConnectSolanaConnectAdapter  | 0.2.23        |
+| ConnectCommon                | 0.2.24        |
+| ParticleConnect              | 0.2.24        |
+| ParticleAuthAdapter          | 0.2.24        |
+| ConnectWalletConnectAdapter  | 0.2.24        |
+| ConnectEVMConnectAdapter     | 0.2.24        |
+| ConnectPhantomConnectAdapter | 0.2.24        |
+| ConnectSolanaConnectAdapter  | 0.2.24        |
 
 ## 🎯 Support Apple Privacy Manifests
 From version 0.2.19, all SDKs have been adapted to Apple's privacy requirements.
