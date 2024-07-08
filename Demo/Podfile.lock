@@ -42,11 +42,11 @@ PODS:
   - ParticleAuthAdapter (0.2.24):
     - ConnectCommon
     - ParticleAuthService
-  - ParticleAuthService (1.4.6):
+  - ParticleAuthService (1.4.9):
     - ParticleNetworkBase
   - ParticleConnect (0.2.24):
     - ConnectCommon
-  - ParticleNetworkBase (1.4.6):
+  - ParticleNetworkBase (1.4.9):
     - Alamofire (~> 5.9.0)
     - Base58.swift
     - BigInt (~> 5.2.0)
@@ -56,7 +56,7 @@ PODS:
     - RxSwift (= 6.6.0)
     - SwiftyJSON (~> 5.0.1)
     - SwiftyUserDefaults (~> 5.3.0)
-  - ParticleWalletAPI (1.4.6):
+  - ParticleWalletAPI (1.4.9):
     - GRDB.swift (~> 6.24.1)
     - ParticleNetworkBase
   - RxAlamofire (6.1.1):
@@ -132,10 +132,10 @@ DEPENDENCIES:
   - ConnectSolanaAdapter (= 0.2.24)
   - ConnectWalletConnectAdapter (= 0.2.24)
   - ParticleAuthAdapter (= 0.2.24)
-  - ParticleAuthService (= 1.4.6)
+  - ParticleAuthService (= 1.4.9)
   - ParticleConnect (= 0.2.24)
-  - ParticleNetworkBase (= 1.4.6)
-  - ParticleWalletAPI (= 1.4.6)
+  - ParticleNetworkBase (= 1.4.9)
+  - ParticleWalletAPI (= 1.4.9)
   - SwiftyUserDefaults (from `https://github.com/SunZhiC/SwiftyUserDefaults.git`, branch `master`)
   - WalletConnectSwiftV2 (from `https://github.com/SunZhiC/WalletConnectSwiftV2.git`, branch `particle`)
 
@@ -199,10 +199,10 @@ SPEC CHECKSUMS:
   GRDB.swift: 136dcb5d8dddca50aae3ba7d77475f79e7232cd8
   libwebp: 1786c9f4ff8a279e4dac1e8f385004d5fc253009
   ParticleAuthAdapter: 6ef287f4befb6b046bd4fb82e1b3594f9b679782
-  ParticleAuthService: e55aa570bd1bd1797485fcb7d97b264b1349aaf7
+  ParticleAuthService: 7f732bdfe93e74197cbd4c8f0cc03fb9f8b6cceb
   ParticleConnect: afa6424cd002ecb93ab3b3df73586e5ab9582ab1
-  ParticleNetworkBase: b40363d077d8801747144e12fe9f7489a813d64b
-  ParticleWalletAPI: c23a71a8f677e6af62ff551b79d14094d721835c
+  ParticleNetworkBase: 5d112d15d6b0a593725e338b23fefd334de79e98
+  ParticleWalletAPI: 2ccc910c503c47cf3fb81ec8d7844d70daa16ba6
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
   RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
@@ -218,6 +218,6 @@ SPEC CHECKSUMS:
   TweetNacl: 3abf4d1d2082b0114e7a67410e300892448951e6
   WalletConnectSwiftV2: a3e9870da851a1608e79d4583668e87ffea6a72d
 
-PODFILE CHECKSUM: b15e3dac273e20162dbf6948749c675fec1d4ab9
+PODFILE CHECKSUM: 1746becf7e848637eefb9af4bc536438919121ca
 
 COCOAPODS: 1.15.2
