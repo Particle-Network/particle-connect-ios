@@ -110,7 +110,7 @@ pod install --repo-update
 
 
 ## Docs
-1. https://docs.particle.network/connect-service/sdks/ios
+1. https://developers.particle.network/api-reference/connect/mobile/ios
 
 ## Give Feedback
 Please report bugs or issues to [particle-connect-ios/issues](https://github.com/Particle-Network/particle-connect-ios/issues)
