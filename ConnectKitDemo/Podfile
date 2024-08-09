@@ -1,0 +1,46 @@
+
+platform :ios, '14.0'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'ConnectKitDemo' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  pod 'ParticleConnectKit', '2.0.0'
+  pod 'ParticleAA', '2.0.0'
+  pod 'ParticleNetworkBase', '2.0.0'
+  pod 'ParticleNetworkChains', '2.0.0'
+  pod 'ParticleWalletConnect', '2.0.0'
+  pod 'ParticleWalletAPI', '2.0.0'
+  pod 'ParticleWalletGUI', '2.0.0'
+  
+  pod 'ConnectCommon', '2.0.0'
+  pod 'ParticleConnect', '2.0.0'
+  pod 'ConnectWalletConnectAdapter', '2.0.0'
+  pod 'ConnectPhantomAdapter', '2.0.0'
+  
+  pod 'ParticleAuthCore', '2.0.0'
+  pod 'ParticleMPCCore', '2.0.0'
+  pod 'AuthCoreAdapter', '2.0.0'
+  pod 'Thresh', '2.0.0'
+
+  pod 'SkeletonView', :git => 'https://github.com/SunZhiC/SkeletonView.git', :branch => 'main'
+  pod 'SwiftyUserDefaults', :git => 'https://github.com/SunZhiC/SwiftyUserDefaults.git', :branch => 'master'
+  pod 'WalletConnectSwiftV2', :git => 'https://github.com/SunZhiC/WalletConnectSwiftV2.git', :branch => 'particle'
+end
+
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+    config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+      end
+    end
+  
+  installer.generated_projects.each do |project|
+    project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '14.0'
+         end
+    end
+  end
+end
