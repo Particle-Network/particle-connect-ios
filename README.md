@@ -21,17 +21,17 @@ Please note that the SDK supports `ios-arm64` (iOS devices) and `ios-arm64-simul
 # Prerequisites
 Install the following:
 
-Xcode 14.1 or higher
+Xcode 15.0 or higher
 
-| Xcode version                | 14.1 or higher | 
+| Xcode version                | 15.0 or higher | 
 |------------------------------|---------------|
-| ConnectCommon                | 0.2.26        |
-| ParticleConnect              | 0.2.26        |
-| ParticleAuthAdapter          | 0.2.26        |
-| ConnectWalletConnectAdapter  | 0.2.26        |
-| ConnectEVMConnectAdapter     | 0.2.26        |
-| ConnectPhantomConnectAdapter | 0.2.26        |
-| ConnectSolanaConnectAdapter  | 0.2.26        |
+| ConnectCommon                | 2.0.0        |
+| ParticleConnect              | 2.0.0        |
+| ParticleAuthAdapter          | 2.0.0        |
+| ConnectWalletConnectAdapter  | 2.0.0        |
+| ConnectEVMConnectAdapter     | 2.0.0        |
+| ConnectPhantomConnectAdapter | 2.0.0        |
+| ConnectSolanaConnectAdapter  | 2.0.0        |
 
 ## 🎯 Support Apple Privacy Manifests
 From version 0.2.19, all SDKs have been adapted to Apple's privacy requirements.

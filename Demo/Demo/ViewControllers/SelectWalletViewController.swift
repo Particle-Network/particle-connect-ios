@@ -14,12 +14,13 @@ import ConnectWalletConnectAdapter
 import Foundation
 import ParticleConnect
 import ParticleNetworkBase
+import ParticleNetworkChains
 import RxSwift
 import UIKit
 
 class SelectWalletViewController: UITableViewController {
     let bag = DisposeBag()
-    
+
     var data: [WalletType] = []
 
     override func viewDidLoad() {
@@ -29,81 +30,50 @@ class SelectWalletViewController: UITableViewController {
         loadData()
         tableView.reloadData()
     }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return data.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(SelectWalletCell.self), for: indexPath) as! SelectWalletCell
-        let wallet = data[indexPath.row]
-        if let imageUrl = URL(string: wallet.imageName) {
+        let walletType = data[indexPath.row]
+        if let imageUrl = URL(string: walletType.imageName) {
             cell.iconImageView.sd_setImage(with: imageUrl)
         }
-        
-        cell.nameLabel.text = wallet.name
+        cell.nameLabel.text = walletType.name
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         let adapters = ParticleConnect.getAdapters(chainType: .solana) + ParticleConnect.getAdapters(chainType: .evm)
         let walletType = data[indexPath.row]
-        
-        var single: Single<Account?>
-        var adapter: ConnectAdapter = adapters[0]
+
+        var single: Single<Account>
+        var adapter: ConnectAdapter?
         switch walletType {
-        case .metaMask:
-            adapter = adapters.first {
-                $0.walletType == .metaMask
-            }!
-        case .particle:
-            adapter = adapters.first {
-                $0.walletType == .particle
-            }!
-        case .rainbow:
-            adapter = adapters.first {
-                $0.walletType == .rainbow
-            }!
-        case .trust:
-            adapter = adapters.first {
-                $0.walletType == .trust
-            }!
-        case .imtoken:
-            adapter = adapters.first {
-                $0.walletType == .imtoken
-            }!
-        case .bitkeep:
-            adapter = adapters.first {
-                $0.walletType == .bitkeep
-            }!
-        case .phantom:
-            adapter = adapters.first {
-                $0.walletType == .phantom
-            }!
-        case .walletConnect:
-            adapter = adapters.first {
-                $0.walletType == .walletConnect
-            }!
-       
-        case .custom(let adapterInfo):
+        case let .custom(adapterInfo):
             adapter = adapters.first {
                 $0.walletType == .custom(info: adapterInfo)
-            }!
-        
+            }
         default:
-            break
+            adapter = adapters.first {
+                $0.walletType == walletType
+            }
         }
-        
-        if adapter.readyState == .notDetected {
+
+        if adapter == nil { return }
+
+        if adapter!.readyState == .notDetected {
             showToast(title: "Error", message: "You haven't installed this wallet.")
             return
         }
-        
-        if adapter.readyState == .unsupported {
+
+        if adapter!.readyState == .unsupported {
             showToast(title: "Error", message: "The wallet is not support current chain")
             return
         }
-        
+
         if walletType == .solanaPrivateKey {
             let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "ImportPrivateKeyViewController") as! ImportPrivateKeyViewController
             vc.chainType = .solana
@@ -113,39 +83,39 @@ class SelectWalletViewController: UITableViewController {
             vc.chainType = .evm
             navigationController?.pushViewController(vc, animated: true)
         } else {
-            if walletType == .particle {
-                single = adapter.connect(ParticleAuthConfig(loginType: .phone))
+            if walletType == .walletConnect {
+                single = adapter!.connect(ConnectConfig.none)
+            } else if walletType == .authCore {
+                single = adapter!.connect(ParticleAuthCoreConfig(loginType: .email, socialLoginPrompt: .selectAccount))
             } else {
-                single = adapter.connect(ConnectConfig.none)
+                single = adapter!.connect(ConnectConfig.none)
             }
-            
+
             single.subscribe { [weak self] result in
                 guard let self = self else { return }
                 switch result {
-                case .failure(let error):
+                case let .failure(error):
                     print(error)
                     self.showToast(title: "Error", message: error.localizedDescription)
-                case .success(let account):
+                case let .success(account):
                     print(account)
 
-                    if let account = account {
-                        // though before walletType value is walletConnect
-                        // user also can login from metamask, rainbow and so on.
-                        // the account.walletType is the real from
-                        
-                        let connectWalletModel = ConnectWalletModel(publicAddress: account.publicAddress, name: account.name, url: account.url, icons: account.icons, description: account.description, walletType: account.walletType, chainId: ParticleNetwork.getChainInfo().chainId)
-                                            
-                        WalletManager.shared.updateWallet(connectWalletModel)
-                        
-                        self.showToast(title: "Success", message: nil) {
-                            self.navigationController?.popViewController(animated: true)
-                        }
+                    // though before walletType value is walletConnect
+                    // user also can login from metamask, rainbow and so on.
+                    // the account.walletType is the real from
+
+                    let connectWalletModel = ConnectWalletModel(publicAddress: account.publicAddress, name: account.name, url: account.url, icons: account.icons, description: account.description, walletType: account.walletType)
+
+                    WalletManager.shared.updateWallet(connectWalletModel)
+
+                    self.showToast(title: "Success", message: nil) {
+                        self.navigationController?.popViewController(animated: true)
                     }
                 }
             }.disposed(by: bag)
         }
     }
-    
+
     func loadData() {
         data = WalletType.allCases
     }

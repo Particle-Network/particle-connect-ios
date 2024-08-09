@@ -1,14 +1,14 @@
 //
 //  SwitchChainViewController.swift
-//  Demo
+//  ConnectKitDemo
 //
-//  Created by link on 2022/6/6.
-//  Copyright © 2022 ParticleNetwork. All rights reserved.
+//  Created by link on 31/07/2024.
 //
 
 import Foundation
 import ParticleConnect
 import ParticleNetworkBase
+import ParticleNetworkChains
 import RxSwift
 import UIKit
 
@@ -18,28 +18,11 @@ class SwitchChainViewController: UIViewController {
     var selectHandler: (() -> Void)?
     let tableView = UITableView(frame: .zero, style: .grouped)
 
-    var data: [[String: [ParticleNetwork.ChainInfo]]] = []
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureData()
         configureTableView()
     }
-
-    func configureData() {
-        let chainInfos = ParticleNetwork.ChainInfo.allNetworks
-
-        let groupDict = Dictionary(grouping: chainInfos, by: { $0.uiName })
-
-        data = groupDict.map { [$0.key: $0.value] }.sorted(by: { dict0, dict1 in
-            let chainInfo0 = dict0.values.first!.first!
-            let chainInfo1 = dict1.values.first!.first!
-            let index0 = chainInfos.firstIndex(of: chainInfo0)!
-            let index1 = chainInfos.firstIndex(of: chainInfo1)!
-            return index0 < index1
-        })
-    }
-
+    
     func configureTableView() {
         view.addSubview(tableView)
 
@@ -48,7 +31,7 @@ class SwitchChainViewController: UIViewController {
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
         ])
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: NSStringFromClass(UITableViewCell.self))
@@ -59,35 +42,32 @@ class SwitchChainViewController: UIViewController {
 }
 
 extension SwitchChainViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data[section].values.first?.count ?? 0
+    func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ChainInfo.allNetworks.count
     }
 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return data.count
+    func numberOfSections(in _: UITableView) -> Int {
+        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(UITableViewCell.self), for: indexPath)
-        let network = data[indexPath.section].values.first?[indexPath.row].network ?? ""
+        let chainInfo = ChainInfo.allNetworks[indexPath.row]
+        let network = chainInfo.uiName + " " + String(chainInfo.chainId)
         cell.textLabel?.text = network
         cell.selectionStyle = .none
         return cell
     }
-
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        data[section].keys.first
-    }
 }
 
 extension SwitchChainViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chainInfo = data[indexPath.section].values.first?[indexPath.row] ?? ParticleNetwork.ChainInfo.ethereum
+    func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let chainInfo = ChainInfo.allNetworks[indexPath.row]
 
         ParticleNetwork.setChainInfo(chainInfo)
-        ParticleConnect.setWalletConnectV2SupportChainInfos([chainInfo])
 
-        let alert = UIAlertController(title: "Switch network", message: "current network is \(chainInfo.name) - \(chainInfo.network)", preferredStyle: .alert)
+        let network = chainInfo.uiName + " " + String(chainInfo.chainId)
+        let alert = UIAlertController(title: "Switch chain", message: "current chain is \(network)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
 
             if let selectHandler = self.selectHandler {
@@ -99,4 +79,5 @@ extension SwitchChainViewController: UITableViewDelegate {
         present(alert, animated: true)
     }
 }
+
 

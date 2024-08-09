@@ -6,9 +6,9 @@
 //  Copyright © 2022 ParticleNetwork. All rights reserved.
 //
 
+import ConnectCommon
 import Foundation
 import SwiftyUserDefaults
-import ConnectCommon
 
 struct ConnectWalletModel: Codable, Equatable, DefaultsSerializable {
     let publicAddress: String
@@ -18,7 +18,6 @@ struct ConnectWalletModel: Codable, Equatable, DefaultsSerializable {
     let description: String?
 
     let walletType: WalletType
-    var chainId: Int
 
     public static var _defaults: DefaultsCodableBridge<ConnectWalletModel>
     { return DefaultsCodableBridge<ConnectWalletModel>() }
@@ -27,11 +26,10 @@ struct ConnectWalletModel: Codable, Equatable, DefaultsSerializable {
     { return DefaultsCodableBridge<[ConnectWalletModel]>() }
 
     static func == (lhs: ConnectWalletModel, rhs: ConnectWalletModel) -> Bool {
-        if lhs.walletType == .particle && rhs.walletType == .particle {
+        if lhs.walletType == .authCore, rhs.walletType == .authCore {
             return true
         } else {
             return lhs.publicAddress.lowercased() == rhs.publicAddress.lowercased() && lhs.walletType == rhs.walletType
         }
-        
     }
 }

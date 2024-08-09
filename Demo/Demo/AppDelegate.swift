@@ -6,36 +6,36 @@
 //  Copyright © 2022 ParticleNetwork. All rights reserved.
 //
 
+import AuthCoreAdapter
+import Base58_swift
 import ConnectCommon
 import ConnectEVMAdapter
 import ConnectPhantomAdapter
 import ConnectSolanaAdapter
 import ConnectWalletConnectAdapter
-import ParticleAuthAdapter
-import ParticleAuthService
 import ParticleConnect
 import ParticleNetworkBase
+import ParticleNetworkChains
+import TweetNacl
 import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
 
         var adapters: [ConnectAdapter] = [
-            EVMConnectAdapter(),
-            SolanaConnectAdapter(),
+            AuthCoreAdapter(),
             MetaMaskConnectAdapter(),
-            ParticleAuthAdapter(),
             PhantomConnectAdapter(),
             WalletConnectAdapter(),
             RainbowConnectAdapter(),
-            BitkeepConnectAdapter(),
+            BitgetConnectAdapter(),
             ImtokenConnectAdapter(),
             TrustConnectAdapter(),
             ZerionConnectAdapter(),
@@ -43,22 +43,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Inch1ConnectAdapter(),
             ZengoConnectAdapter(),
             AlphaConnectAdapter(),
-            OKXConnectAdapter()
+            OKXConnectAdapter(),
+            EVMConnectAdapter(),
+            SolanaConnectAdapter()
         ]
 
-        ParticleConnect.initialize(env: .debug, chainInfo: .ethereum, dAppData: .standard) {
-            adapters
-        }
+        let env: ParticleNetwork.DevEnvironment = .debug
 
-        // You should get this wallet connect project id from https://walletconnect.com/, its required by it.
         ParticleConnect.setWalletConnectV2ProjectId("75ac08814504606fc06126541ace9df6")
-        // Set the required chains for WalletConnect v2. If not set, the current chain will be used.
-//        ParticleConnect.setWalletConnectV2SupportChainInfos([.ethereum])
+//        ParticleConnect.setWalletConnectV2SupportChainInfos([.ethereum, .polygon])
+
+        ParticleConnect.initialize(env: env, chainInfo: .ethereum, dAppData: .standard, adapters: adapters)
 
         return true
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+    func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         if ParticleConnect.handleUrl(url) {
             return true
         }

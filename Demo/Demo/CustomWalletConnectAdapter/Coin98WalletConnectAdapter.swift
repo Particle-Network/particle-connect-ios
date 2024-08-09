@@ -20,13 +20,13 @@ import Foundation
 /// if the app has neither universal link nor scheme,
 /// it is not ready for wallet connect.
 public class Coin98WalletConnectAdapter: WalletConnectAdapter {
-    public override var walletType: WalletType {
-        return WalletType.custom(info: AdapterInfo.init(name: "Coin98",
-                     url: "https://coin98.com/",
-                     icon: "https://registry.walletconnect.com/v2/logo/md/dee547be-936a-4c92-9e3f-7a2350a62e00",
-                     redirectUrlHost: "coin98",
-                     supportChains: [.evm],
-                     deepLink: "coin98://",
-                     scheme: "coin98://"))
+    override public var walletType: WalletType {
+        return WalletType.custom(info: AdapterInfo(name: "Coin98",
+                                                   url: "https://coin98.com/",
+                                                   icon: "https://registry.walletconnect.com/v2/logo/md/dee547be-936a-4c92-9e3f-7a2350a62e00",
+                                                   redirectUrlHost: "coin98",
+                                                   supportChains: [.evm],
+                                                   deepLink: "coin98://",
+                                                   scheme: "coin98://", appstoreUrl: ""))
     }
 }

@@ -24,9 +24,6 @@
 		5FA62A3E289B6A94002A5C74 /* SwitchChainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA62A35289B6A94002A5C74 /* SwitchChainViewController.swift */; };
 		5FA62A42289B6CF2002A5C74 /* RecentBlockHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA62A41289B6CF2002A5C74 /* RecentBlockHash.swift */; };
 		5FA62A44289B6D57002A5C74 /* ParticleNetwork-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FA62A43289B6D57002A5C74 /* ParticleNetwork-Info.plist */; };
-		5FC3E85128C5D0290016F095 /* LoginListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC3E85028C5D0290016F095 /* LoginListViewController.swift */; };
-		5FC3E85428C5D0430016F095 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC3E85228C5D0430016F095 /* LoginCell.swift */; };
-		5FC3E85528C5D0430016F095 /* LoginHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC3E85328C5D0430016F095 /* LoginHeaderView.swift */; };
 		5FC3E85728C5D0710016F095 /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC3E85628C5D0710016F095 /* LoginDataModel.swift */; };
 		5FC3E85E28C5D14D0016F095 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5FC3E85928C5D14D0016F095 /* Localizable.strings */; };
 		5FC3E85F28C5D14D0016F095 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5FC3E85C28C5D14D0016F095 /* Localizable.strings */; };
@@ -54,9 +51,6 @@
 		5FA62A35289B6A94002A5C74 /* SwitchChainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchChainViewController.swift; sourceTree = "<group>"; };
 		5FA62A41289B6CF2002A5C74 /* RecentBlockHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentBlockHash.swift; sourceTree = "<group>"; };
 		5FA62A43289B6D57002A5C74 /* ParticleNetwork-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ParticleNetwork-Info.plist"; sourceTree = "<group>"; };
-		5FC3E85028C5D0290016F095 /* LoginListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginListViewController.swift; sourceTree = "<group>"; };
-		5FC3E85228C5D0430016F095 /* LoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
-		5FC3E85328C5D0430016F095 /* LoginHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginHeaderView.swift; sourceTree = "<group>"; };
 		5FC3E85628C5D0710016F095 /* LoginDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		5FC3E85A28C5D14D0016F095 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		5FC3E85D28C5D14D0016F095 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = Localizable.strings; sourceTree = "<group>"; };
@@ -174,8 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				5FA62A2F289B6A94002A5C74 /* SelectWalletCell.swift */,
-				5FC3E85228C5D0430016F095 /* LoginCell.swift */,
-				5FC3E85328C5D0430016F095 /* LoginHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,7 +175,6 @@
 		5FA62A30289B6A94002A5C74 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5FC3E85028C5D0290016F095 /* LoginListViewController.swift */,
 				5FA62A31289B6A94002A5C74 /* SelectWalletViewController.swift */,
 				5FA62A32289B6A94002A5C74 /* ActionViewController.swift */,
 				5FA62A33289B6A94002A5C74 /* ImportPrivateKeyViewController.swift */,
@@ -290,6 +281,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSKMS/AWSKMS.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Base58.swift/Base58_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
@@ -301,11 +294,13 @@
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImageWebPCoder/SDWebImageWebPCoder.framework",
+				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
+				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
 				"${BUILT_PRODUCTS_DIR}/TweetNacl/TweetNacl.framework",
 				"${BUILT_PRODUCTS_DIR}/WalletConnectSwiftV2/WalletConnectSwiftV2.framework",
 				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
@@ -313,6 +308,8 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSKMS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Base58_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
@@ -324,11 +321,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImageWebPCoder.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TweetNacl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WalletConnectSwiftV2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
@@ -347,11 +346,13 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-resources.sh",
 				"${PODS_ROOT}/ConnectWalletConnectAdapter/XCFrameworks/ConnectWalletConnectAdapter/ConnectWalletConnectAdapter.bundle",
+				"${PODS_ROOT}/ParticleAuthCore/XCFrameworks/ParticleAuthCore/ParticleAuthCore.bundle",
 				"${PODS_ROOT}/ParticleNetworkBase/XCFrameworks/ParticleNetworkBase/ParticleNetworkBase.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ConnectWalletConnectAdapter.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ParticleAuthCore.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ParticleNetworkBase.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,10 +392,8 @@
 				5FA62A39289B6A94002A5C74 /* SelectWalletCell.swift in Sources */,
 				5FA62A38289B6A94002A5C74 /* WalletManager.swift in Sources */,
 				5F74F183298CEED00046E9C1 /* Coin98WalletConnectAdapter.swift in Sources */,
-				5FC3E85428C5D0430016F095 /* LoginCell.swift in Sources */,
 				5FC3E86128C5D1640016F095 /* String+Extensions.swift in Sources */,
 				5FA62A16289B6643002A5C74 /* AppDelegate.swift in Sources */,
-				5FC3E85128C5D0290016F095 /* LoginListViewController.swift in Sources */,
 				5FA62A42289B6CF2002A5C74 /* RecentBlockHash.swift in Sources */,
 				5FA138BD289D046D00898C1C /* UIView+Extensions.swift in Sources */,
 				5FA62A36289B6A94002A5C74 /* ConnectedWalletModel.swift in Sources */,
@@ -403,7 +402,6 @@
 				5FA62A37289B6A94002A5C74 /* SelectWalletModel.swift in Sources */,
 				5FC3E85728C5D0710016F095 /* LoginDataModel.swift in Sources */,
 				5FA62A3A289B6A94002A5C74 /* SelectWalletViewController.swift in Sources */,
-				5FC3E85528C5D0430016F095 /* LoginHeaderView.swift in Sources */,
 				5FA62A3E289B6A94002A5C74 /* SwitchChainViewController.swift in Sources */,
 				5FA62A3D289B6A94002A5C74 /* ConnectedViewController.swift in Sources */,
 			);
@@ -586,7 +584,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.26;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.connect.particle.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.connect.particle.demo";
@@ -622,7 +620,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.26;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.connect.particle.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.connect.particle.demo";

@@ -12,7 +12,24 @@ import UIKit
 
 extension WalletType: CaseIterable {
     public static var allCases: [WalletType] {
-        return [.particle, .metaMask, .rainbow, .trust, .imtoken, .bitkeep, .walletConnect, .phantom, .evmPrivateKey, .solanaPrivateKey]
+        return [
+            WalletType.authCore,
+            WalletType.evmPrivateKey,
+            WalletType.solanaPrivateKey,
+            WalletType.metaMask,
+            WalletType.rainbow,
+            WalletType.walletConnect,
+            WalletType.trust,
+            WalletType.phantom,
+            WalletType.imtoken,
+            WalletType.bitget,
+            WalletType.zerion,
+            WalletType.math,
+            WalletType.inch1,
+            WalletType.zengo,
+            WalletType.alpha,
+            WalletType.okx
+        ]
     }
 
     var name: String {
@@ -20,7 +37,7 @@ extension WalletType: CaseIterable {
     }
 
     var imageName: String {
-        return self.info.icon
+        return info.icon
     }
 }
 
@@ -28,3 +45,4 @@ struct SelectWalletModel {
     let name: String
     let image: UIImage
 }
+
