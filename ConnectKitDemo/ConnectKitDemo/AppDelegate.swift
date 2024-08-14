@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
 
         ParticleConnect.initialize(env: .debug, chainInfo: .ethereum, dAppData: .standard, adapters: adapters)
-
+        ParticleConnect.setWalletConnectV2SupportChainInfos([.ethereum, .bnbChain])
         let walletConnectProjectId = "75ac08814504606fc06126541ace9df6"
         ParticleConnect.setWalletConnectV2ProjectId(walletConnectProjectId)
         ParticleWalletConnect.initialize(

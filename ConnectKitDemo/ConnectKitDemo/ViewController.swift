@@ -5,13 +5,17 @@
 //  Created by link on 09/08/2024.
 //
 
+import ConnectCommon
 import Foundation
 import ParticleAA
+import ParticleAuthCore
+import ParticleConnect
 import ParticleConnectKit
 import ParticleNetworkBase
 import ParticleNetworkChains
 import ParticleWalletGUI
 import UIKit
+import ParticleWalletAPI
 
 class ViewController: UIViewController {
     @IBOutlet var addressLabel: UILabel!
@@ -95,6 +99,31 @@ class ViewController: UIViewController {
                 print("get account \(account)")
                 print("eoa address \(account.publicAddress)")
                 print("smart account address \(smartAccountAddress)")
+
+                let publicAddress = account.publicAddress
+                let walletType = account.walletType
+
+                // if you add ParticleAA and enable aa service.
+                let smartAccount = account.smartAccount?.smartAccountAddress
+
+                if account.walletType == WalletType.authCore {
+                    let auth = Auth()
+                    let userInfo = auth.getUserInfo()
+                }
+
+                let adapter = ParticleConnect.getAllAdapters().first {
+                    $0.walletType == account.walletType
+                }
+                if adapter == nil {
+                    print("you did not init this walletType \(account.walletType)")
+                }
+                
+                let receiverAddress = "0x0000000000000000000000000000000000000000"
+                let value = BDouble(0.000000001 * pow(10, 18)).rounded().toHexString()
+                let transaction = try await ParticleWalletAPI.evm().createTransaction(from: account.publicAddress, to: receiverAddress, value: value, data: "0x").value
+                                
+                let txHash = try await adapter!.signAndSendTransaction(publicAddress: account.publicAddress, transaction: transaction).value
+
             } catch {
                 print("get error \(error)")
             }

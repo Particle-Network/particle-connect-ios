@@ -5,17 +5,17 @@
 [![License](https://img.shields.io/github/license/Particle-Network/particle-ios)](https://github.com/Particle-Network/particle-connect-ios/blob/main/LICENSE.txt)
 
 
-<img width="420" src="https://static.particle.network/docs-images/add-wallet.png"></img>
-<img width="420" src="https://static.particle.network/docs-images/import-private-key.png"></img>    
+<img width="420" src="/images/connectkit-mobile.svg"></img>
+
 
 ## Summary
 
 Modular Swift wallet adapters and components for EVM & Solana chains. Manage wallet and custom RPC request.
 
-![Particle Connect](https://static.particle.network/docs-images/particle-connect.jpeg)
+<img width="420" src="/images/onboading.png"></img>
 
 #### Note
-Please note that the SDK supports `ios-arm64` (iOS devices) and `ios-arm64-simulator` (M-series chip simulators). We currently do not support `ios-x86_64-simulator` (Intel chip simulators).
+Please note that the SDKs only support `ios-arm64` (iOS devices). We currently do not support `ios-x86_64-simulator` (Intel chip simulators) and  `ios-arm64-simulator` (M-series chip simulators).
 
 
 # Prerequisites
@@ -23,15 +23,15 @@ Install the following:
 
 Xcode 15.0 or higher
 
-| Xcode version                | 15.0 or higher | 
-|------------------------------|---------------|
-| ConnectCommon                | 2.0.0        |
-| ParticleConnect              | 2.0.0        |
-| ParticleAuthAdapter          | 2.0.0        |
-| ConnectWalletConnectAdapter  | 2.0.0        |
-| ConnectEVMConnectAdapter     | 2.0.0        |
-| ConnectPhantomConnectAdapter | 2.0.0        |
-| ConnectSolanaConnectAdapter  | 2.0.0        |
+| Xcode version                | 15.0 or higher |
+| ---------------------------- | -------------- |
+| ConnectCommon                | 2.0.0          |
+| ParticleConnect              | 2.0.0          |
+| ParticleAuthAdapter          | 2.0.0          |
+| ConnectWalletConnectAdapter  | 2.0.0          |
+| ConnectEVMConnectAdapter     | 2.0.0          |
+| ConnectPhantomConnectAdapter | 2.0.0          |
+| ConnectSolanaConnectAdapter  | 2.0.0          |
 
 ## 🎯 Support Apple Privacy Manifests
 From version 0.2.19, all SDKs have been adapted to Apple's privacy requirements.
@@ -53,7 +53,7 @@ ParticleConnect.setWalletConnectV2ProjectId("your wallet connect v2 project")
 
 Set the required chains for WalletConnect v2. If not set, the current chain will be used.
 ```swift
-ParticleConnect.setWalletConnectV2SupportChainInfos([.ethereum(.mainnet)])
+ParticleConnect.setWalletConnectV2SupportChainInfos([.ethereum])
 ```
 
 ###  🧂 Update Podfile
