@@ -12,7 +12,7 @@
 
 Modular Swift wallet adapters and components for EVM & Solana chains. Manage wallet and custom RPC request.
 
-<img width="420" src="/images/onboading.png"></img>
+<img width="420" src="/images/onboarding.png"></img>
 
 #### Note
 Please note that the SDKs only support `ios-arm64` (iOS devices). We currently do not support `ios-x86_64-simulator` (Intel chip simulators) and  `ios-arm64-simulator` (M-series chip simulators).
