@@ -40,15 +40,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         ParticleConnect.initialize(env: .debug, chainInfo: .ethereum, dAppData: .standard, adapters: adapters)
         ParticleConnect.setWalletConnectV2SupportChainInfos([.ethereum, .bnbChain])
-        let walletConnectProjectId = "75ac08814504606fc06126541ace9df6"
-        ParticleConnect.setWalletConnectV2ProjectId(walletConnectProjectId)
         ParticleWalletConnect.initialize(
             WalletMetaData(name: "Particle Wallet",
                            icon: URL(string: "https://connect.particle.network/icons/512.png")!,
                            url: URL(string: "https://particle.network")!,
                            description: "Particle Connect is a decentralized wallet connection protocol that makes it easy for users to connect their wallets to your DApp.", redirectUniversalLink: nil)
         )
-        ParticleWalletConnect.setWalletConnectV2ProjectId(walletConnectProjectId)
         ParticleWalletGUI.setAdapters(adapters)
 
         ParticleWalletGUI.setShowLanguageSetting(true)

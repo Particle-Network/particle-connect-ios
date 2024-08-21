@@ -25,13 +25,13 @@ Xcode 15.0 or higher
 
 | Xcode version                | 15.0 or higher |
 | ---------------------------- | -------------- |
-| ConnectCommon                | 2.0.0          |
-| ParticleConnect              | 2.0.0          |
-| ParticleAuthAdapter          | 2.0.0          |
-| ConnectWalletConnectAdapter  | 2.0.0          |
-| ConnectEVMConnectAdapter     | 2.0.0          |
-| ConnectPhantomConnectAdapter | 2.0.0          |
-| ConnectSolanaConnectAdapter  | 2.0.0          |
+| ConnectCommon                | 2.0.2          |
+| ParticleConnect              | 2.0.2          |
+| ParticleAuthAdapter          | 2.0.2          |
+| ConnectWalletConnectAdapter  | 2.0.2          |
+| ConnectEVMConnectAdapter     | 2.0.2          |
+| ConnectPhantomConnectAdapter | 2.0.2          |
+| ConnectSolanaConnectAdapter  | 2.0.2          |
 
 ## 🎯 Support Apple Privacy Manifests
 From version 0.2.19, all SDKs have been adapted to Apple's privacy requirements.
@@ -45,11 +45,6 @@ pod 'WalletConnectSwiftV2', :git => 'https://github.com/SunZhiC/WalletConnectSwi
 
 ### Migrating to WalletConnect v2
 Starting from version 0.2.0, WalletConnect v2 is supported.
-
-Set your wallet connect v2 project id to start
-```swift
-ParticleConnect.setWalletConnectV2ProjectId("your wallet connect v2 project")
-```
 
 Set the required chains for WalletConnect v2. If not set, the current chain will be used.
 ```swift

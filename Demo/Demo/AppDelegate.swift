@@ -50,7 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let env: ParticleNetwork.DevEnvironment = .debug
 
-        ParticleConnect.setWalletConnectV2ProjectId("75ac08814504606fc06126541ace9df6")
 //        ParticleConnect.setWalletConnectV2SupportChainInfos([.ethereum, .polygon])
 
         ParticleConnect.initialize(env: env, chainInfo: .ethereum, dAppData: .standard, adapters: adapters)
