@@ -4,18 +4,18 @@
 <dict>
     <key>LSApplicationQueriesSchemes</key>
     <array>
-        <string>metamask</string>
-        <string>phantom</string>
-        <string>bitkeep</string>
-        <string>imtokenv2</string>
-        <string>rainbow</string>
-        <string>trust</string>
-        <string>zerion</string>
-      <string>mathwallet</string>
-      <string>oneinch</string>
-      <string>awallet</string>
-      <string>okex</string>
-	  <string>bnc</string>
+	<string>metamask</string>
+	<string>phantom</string>
+	<string>bitkeep</string>
+	<string>imtokenv2</string>
+	<string>rainbow</string>
+	<string>trust</string>
+	<string>zerion</string>
+	<string>mathwallet</string>
+	<string>oneinch</string>
+	<string>awallet</string>
+	<string>okex</string>
+	<string>bnc</string>
     </array>
     <key>NSPhotoLibraryUsageDescription</key>
     <string>We need access in order to open photos of barcodes</string>
