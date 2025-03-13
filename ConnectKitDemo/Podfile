@@ -1,27 +1,34 @@
 
-platform :ios, '14.0'
+platform :ios, '15.6'
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'ConnectKitDemo' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  pod 'ParticleConnectKit', '2.0.4'
-  pod 'ParticleAA', '2.0.4'
-  pod 'ParticleNetworkBase', '2.0.4'
-  pod 'ParticleNetworkChains', '2.0.4'
-  pod 'ParticleWalletConnect', '2.0.4'
-  pod 'ParticleWalletAPI', '2.0.4'
-  pod 'ParticleWalletGUI', '2.0.4'
+
+  pod 'ParticleAA', '2.0.9'
+  pod 'ParticleNetworkBase', '2.0.9'
+  pod 'ParticleWalletAPI', '2.0.9'
+  pod 'ParticleWalletConnect', '2.0.9'
+  pod 'ParticleWalletGUI', '2.0.9'
+
+  pod 'ParticleNetworkChains', '2.0.8'
+
+
+  pod 'ConnectCommon', '2.0.8'
+  pod 'ConnectPhantomAdapter', '2.0.8'
+  pod 'ConnectWalletConnectAdapter', '2.0.8'
+
+  pod 'ParticleConnect', '2.0.8'
   
-  pod 'ConnectCommon', '2.0.4'
-  pod 'ParticleConnect', '2.0.4'
-  pod 'ConnectWalletConnectAdapter', '2.0.4'
-  pod 'ConnectPhantomAdapter', '2.0.4'
+
+  pod 'Thresh', '2.0.9'
+  pod 'ParticleMPCCore', '2.0.9'
+  pod 'ParticleAuthCore', '2.0.9'
+  pod 'AuthCoreAdapter', '2.0.9'
   
-  pod 'ParticleAuthCore', '2.0.4'
-  pod 'ParticleMPCCore', '2.0.4'
-  pod 'AuthCoreAdapter', '2.0.4'
-  pod 'Thresh', '2.0.4'
+  pod 'ParticleConnectKit', '2.0.9'
+
 
   pod 'SkeletonView', :git => 'https://github.com/SunZhiC/SkeletonView.git', :branch => 'main'
   pod 'SwiftyUserDefaults', :git => 'https://github.com/SunZhiC/SwiftyUserDefaults.git', :branch => 'master'
@@ -39,7 +46,7 @@ post_install do |installer|
   installer.generated_projects.each do |project|
     project.targets.each do |target|
         target.build_configurations.each do |config|
-            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '14.0'
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.6'
          end
     end
   end
